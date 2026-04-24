@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.inamericaedu.com)",
+      "WebFetch(domain:www.signalfire.com)",
+      "WebFetch(domain:aiworld.eu)",
+      "WebFetch(domain:csrankings.org)",
+      "WebFetch(domain:eu.36kr.com)",
+      "WebFetch(domain:www.topuniversities.com)",
+      "WebFetch(domain:www.usnews.com)",
+      "WebFetch(domain:exercisejobs.com)",
+      "WebFetch(domain:resumegenius.com)",
+      "WebFetch(domain:research.com)",
+      "WebFetch(domain:www.collegetransitions.com)",
+      "WebFetch(domain:www.rightway-admission.com)",
+      "WebFetch(domain:machinelearning.apple.com)",
+      "WebFetch(domain:www.timeshighereducation.com)",
+      "WebFetch(domain:www.rebellionresearch.com)",
+      "WebFetch(domain:www.aionlinecourse.com)",
+      "WebFetch(domain:www.sundeepteki.org)",
+      "WebFetch(domain:paw.princeton.edu)",
+      "WebFetch(domain:www.thecrimson.com)",
+      "WebFetch(domain:www.mastersinai.org)"
+    ]
+  }
+}

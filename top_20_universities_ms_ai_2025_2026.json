@@ -1,0 +1,893 @@
+{
+  "metadata": {
+    "title": "Top 20 USA Universities for MS in Computer Science, AI, Machine Learning & Computational Science",
+    "data_year": "2025-2026",
+    "methodology": "Based on CSRankings 2025, Times Higher Education CS 2026, US News 2025/2026, QS DS&AI 2025/2026, MANGO alumni data, College Transitions tech feeder data, OpenAI alumni analysis, Apple Scholars AIML 2025/2026",
+    "sources": [
+      "CSRankings.org 2025",
+      "Times Higher Education World CS Rankings 2026",
+      "QS World University Rankings — Data Science & AI 2025/2026",
+      "US News Best Graduate CS Programs 2025/2026",
+      "ResumeGenius MANGO Report 2025-2026",
+      "College Transitions Tech Feeder Data 2025",
+      "36kr/OpenAI Talent Analysis 2025",
+      "Apple Scholars in AIML 2025 & 2026",
+      "University official websites and news releases"
+    ]
+  },
+  "universities": [
+    {
+      "rank": 1,
+      "name": "Carnegie Mellon University",
+      "location": "Pittsburgh, PA",
+      "key_programs": [
+        "MS in Machine Learning (MSML)",
+        "MS in Artificial Intelligence and Innovation (MSAII)",
+        "MS in Computer Vision (MSCV)",
+        "MS in Robotics (MSR)",
+        "MS in Language Technologies (MSLT)",
+        "MS in Computational Data Science (MCDS)"
+      ],
+      "rankings": {
+        "times_higher_education_cs_2026": {
+          "us_rank": 4,
+          "score": 95.5
+        },
+        "csrankings_2025_ai": "Top 5",
+        "us_news_grad_cs": 1,
+        "mango_alumni_share_percent": 6.88,
+        "mango_rank": 1
+      },
+      "alumni_data": {
+        "openai": 255,
+        "tech_companies_top_15": 530
+      },
+      "apple_scholars_aiml": false,
+      "notable_connections": [
+        "World's first standalone Machine Learning Department (founded 2006)",
+        "Top feeder to Google (2.62%), Meta (1.36%), Apple (1.15%), NVIDIA",
+        "1,400+ researchers",
+        "DARPA partnerships",
+        "Robotics Institute",
+        "Language Technologies Institute",
+        "Software Engineering Institute"
+      ],
+      "why_notable": "CMU has the world's first and only standalone Machine Learning Department. Ranks #1 by MANGO alumni share — CMU alumni constitute 6.88% of all employees across Microsoft, Apple, Nvidia, Google, and OpenAI combined."
+    },
+    {
+      "rank": 2,
+      "name": "Stanford University",
+      "location": "Stanford, CA",
+      "key_programs": [
+        "MS in Computer Science (AI specialization)",
+        "MS in Statistics (Machine Learning track)",
+        "Stanford AI Professional Program (online certificates)"
+      ],
+      "rankings": {
+        "times_higher_education_cs_2026": {
+          "us_rank": 3,
+          "score": 95.9
+        },
+        "csrankings_2025_ai": "Top 5",
+        "us_news_grad_cs": 1,
+        "mango_alumni_share_percent": 3.12,
+        "mango_rank": 4
+      },
+      "alumni_data": {
+        "openai": 230,
+        "tech_companies_top_15": 458,
+        "anthropic": 359
+      },
+      "apple_scholars_aiml": false,
+      "notable_connections": [
+        "Stanford Artificial Intelligence Laboratory (SAIL)",
+        "Human-centered AI Institute (HAI)",
+        "Co-founders and executives at OpenAI and Anthropic",
+        "Fei-Fei Li — co-created ImageNet"
+      ],
+      "why_notable": "#1 feeder to OpenAI and Anthropic by raw headcount — 589 Stanford alumni at these two frontier AI companies alone. OpenAI has 230 Stanford graduates (13% of OpenAI's entire workforce from top 3 schools)."
+    },
+    {
+      "rank": 3,
+      "name": "Massachusetts Institute of Technology",
+      "location": "Cambridge, MA",
+      "key_programs": [
+        "MS in Electrical Engineering and Computer Science (EECS)",
+        "Master of Science in Computation for Design and Optimization",
+        "Master of Science in Computational Science and Engineering"
+      ],
+      "rankings": {
+        "times_higher_education_cs_2026": {
+          "us_rank": 1,
+          "score": 96.2
+        },
+        "qs_ds_ai_2025": 1,
+        "qs_ds_ai_2026": 1,
+        "csrankings_2025_ai": "Top 5",
+        "us_news_grad_cs": 1
+      },
+      "alumni_data": {
+        "openai": 107
+      },
+      "apple_scholars_aiml": {
+        "2025": true,
+        "2026": true,
+        "scholars": ["Cathy Mengying Fang (2025)", "Mahbod Majid (2026)"]
+      },
+      "notable_connections": [
+        "CSAIL (Computer Science and Artificial Intelligence Laboratory) — largest AI/CS research lab",
+        "AI + Decision Making initiative",
+        "93%+ of students do research via UROP program"
+      ],
+      "why_notable": "MIT ranks #1 in QS Data Science & AI 2025 and 2026, and #1 in Times Higher Education CS 2026. CSAIL is the largest AI/CS research lab in the world."
+    },
+    {
+      "rank": 4,
+      "name": "University of California, Berkeley",
+      "location": "Berkeley, CA",
+      "key_programs": [
+        "MS in Electrical Engineering and Computer Sciences (EECS)",
+        "MS in Computer Science (AI/ML track)",
+        "Master of Engineering (Robotics)",
+        "Professional ML Certificate (online)"
+      ],
+      "rankings": {
+        "times_higher_education_cs_2026": {
+          "us_rank": 7,
+          "score": 92.8
+        },
+        "csrankings_2025_ai": "Top 5",
+        "us_news_grad_cs": 1
+      },
+      "alumni_data": {
+        "openai": 167,
+        "tech_companies_top_15": 1041
+      },
+      "apple_scholars_aiml": false,
+      "notable_connections": [
+        "BAIR (Berkeley AI Research) Lab",
+        "CHAI (Center for Human-Compatible AI)",
+        "John Schulman (OpenAI co-founder, ChatGPT lead architect)",
+        "PyTorch and RL algorithms originated here",
+        "48% of undergraduates participate in research"
+      ],
+      "why_notable": "Single largest feeder to Big Tech by total headcount — 1,041 alumni across top 15 tech firms (Google, Meta, Apple, Amazon, Microsoft), more than any other US university."
+    },
+    {
+      "rank": 5,
+      "name": "University of Illinois at Urbana-Champaign",
+      "location": "Champaign-Urbana, IL",
+      "key_programs": [
+        "MS in Computer Science (AI/ML specialization, thesis-based)",
+        "MCS (Professional Master's in CS) — online and on-campus",
+        "MEng in Autonomy and Robotics",
+        "MS in Statistics (Data Science track)"
+      ],
+      "rankings": {
+        "times_higher_education_cs_2026": {
+          "us_rank": 10,
+          "score": 89.6
+        },
+        "csrankings_2025_ai": {
+          "us_rank": 2
+        },
+        "us_news_grad_cs": 5
+      },
+      "alumni_data": {
+        "tech_companies_top_15": 598
+      },
+      "apple_scholars_aiml": false,
+      "notable_connections": [
+        "120+ corporations in on-campus Research Park (Google, Microsoft, Amazon)",
+        "Siebel School of Computing with specialized AI pathways",
+        "91% of CS grads land their next destination within 6 months"
+      ],
+      "why_notable": "Ranks #2 overall by total tech employees at top 15 firms with 598 employees. CSRankings 2025: #2 in AI category."
+    },
+    {
+      "rank": 6,
+      "name": "University of Washington",
+      "location": "Seattle, WA",
+      "key_programs": [
+        "MS in Computer Science (Paul G. Allen School)",
+        "Professional Master's Program (PMP) in CS",
+        "MS in Data Science",
+        "Online MS in AI and Machine Learning for Engineering"
+      ],
+      "rankings": {
+        "times_higher_education_cs_2026": {
+          "us_rank": 11,
+          "score": 89.1
+        },
+        "mango_alumni_share_percent": 2.57,
+        "mango_rank": 5
+      },
+      "alumni_data": {
+        "openai": 42,
+        "tech_companies_top_15": 511
+      },
+      "apple_scholars_aiml": false,
+      "notable_connections": [
+        "Microsoft partnership expansion (February 2026)",
+        "Ai2 (Allen Institute for AI) partnership (August 2025)",
+        "NSF/NVIDIA partnership",
+        "18 faculty with concurrent roles at Google, Meta, Microsoft",
+        "Noah A. Smith holds 'Amazon Professor of Machine Learning' chair"
+      ],
+      "why_notable": "MANGO rank #5 (2.57% share). Microsoft formally expanded partnership in Feb 2026 with advanced AI computing access and 10 additional graduate researcher slots annually."
+    },
+    {
+      "rank": 7,
+      "name": "Georgia Institute of Technology",
+      "location": "Atlanta, GA",
+      "key_programs": [
+        "MS in Computer Science (MSCS) — 11 specializations including Machine Learning",
+        "MS in Machine Learning (standalone MSML)",
+        "Online MS in CS (OMSCS) — ~$7,000 total",
+        "MS in Robotics"
+      ],
+      "rankings": {
+        "times_higher_education_cs_2026": {
+          "us_rank": 14,
+          "score": 85.6
+        },
+        "csrankings_2025_ai": {
+          "us_rank": 4
+        },
+        "us_news_grad_ai_specialty": 5
+      },
+      "alumni_data": {
+        "tech_companies_top_15": 436
+      },
+      "apple_scholars_aiml": {
+        "2025": true,
+        "scholars": ["Guanghui Wang (PhD)"]
+      },
+      "notable_connections": [
+        "OMSCS — 10,000+ enrolled, transformed access to top-tier CS",
+        "NSF $20M award for Nexus supercomputer (2024)",
+        "50% of undergraduates collaborate on research"
+      ],
+      "why_notable": "OMSCS is ranked #1 for online CS graduate programs with ~$7,000 total cost. #4 in total Big Tech employee headcount with 436 employees."
+    },
+    {
+      "rank": 8,
+      "name": "Cornell University",
+      "location": "Ithaca, NY (+ Cornell Tech, New York City)",
+      "key_programs": [
+        "Master of Engineering (MEng) in Computer Science",
+        "MS in Computer Science (research-focused)",
+        "MS in Information Science (AI specialization)"
+      ],
+      "rankings": {
+        "times_higher_education_cs_2026": {
+          "us_rank": 8,
+          "score": 90.7
+        },
+        "us_news_grad_cs": 7
+      },
+      "alumni_data": {
+        "tech_companies_top_15": 403
+      },
+      "apple_scholars_aiml": {
+        "2026": true,
+        "scholars": ["Tobias Weinberg (PhD)"]
+      },
+      "notable_connections": [
+        "Only Ivy League with full engineering rigor comparable to MIT/Stanford",
+        "Cornell Tech campus in NYC for industry proximity",
+        "Leads in AI ethics and responsible AI research",
+        "Google is top employer"
+      ],
+      "why_notable": "Only Ivy League school with full engineering rigor. #8 in Times Higher Education CS 2026. #9 in total tech employee headcount with 403 employees."
+    },
+    {
+      "rank": 9,
+      "name": "University of Michigan, Ann Arbor",
+      "location": "Ann Arbor, MI",
+      "key_programs": [
+        "MS in Computer Science and Engineering (CSE)",
+        "MS in Electrical and Computer Engineering (Data Science/ML track)",
+        "MS in Robotics",
+        "Master of Engineering in ECE (Data Science/ML)"
+      ],
+      "rankings": {
+        "times_higher_education_cs_2026": {
+          "us_rank": 17,
+          "score": 84.4
+        }
+      },
+      "alumni_data": {
+        "tech_companies_top_15": 561
+      },
+      "apple_scholars_aiml": {
+        "2025": true,
+        "scholars": [
+          "Ruei-Che Chang (AI for Accessibility)",
+          "Vinod Raman (Privacy Preserving ML)"
+        ]
+      },
+      "notable_connections": [
+        "50+ AI faculty",
+        "Strong automotive AI partnerships (Ford, Toyota Research Institute)",
+        "MIDAS Institute coordinates AI/ML funding",
+        "1,300+ students participate in research programs annually"
+      ],
+      "why_notable": "#3 in total tech employee headcount with 561 employees. Microsoft is top employer. Apple Scholar 2025 selected 2 Michigan PhD students."
+    },
+    {
+      "rank": 10,
+      "name": "Princeton University",
+      "location": "Princeton, NJ",
+      "key_programs": [
+        "MS in Computer Science (research-focused, leading to PhD)",
+        "MS in Electrical and Computer Engineering",
+        "Certificate in Statistics and Machine Learning (CSML)"
+      ],
+      "rankings": {
+        "times_higher_education_cs_2026": {
+          "us_rank": 2,
+          "score": 96.1
+        },
+        "ai_research_per_student": "2.598 publications (highest in US)"
+      },
+      "alumni_data": {
+        "openai": 34
+      },
+      "apple_scholars_aiml": {
+        "2025": true,
+        "2026": true,
+        "scholars": [
+          "Abhishek Panigrahi (2025)",
+          "Jiachen Wang (2025)",
+          "Xindi Wu (2026)"
+        ]
+      },
+      "notable_connections": [
+        "Dario Amodei (Anthropic CEO, Princeton PhD '11)",
+        "Fei-Fei Li (Princeton BA '99, Stanford AI professor)",
+        "Six Princetonians on Time's 100 Most Influential AI People",
+        "CSML center — most rigorous ML theory program globally"
+      ],
+      "why_notable": "#2 in Times Higher Education CS 2026. Leads in per-student AI research output (2.598 AI publications per student, highest in US)."
+    },
+    {
+      "rank": 11,
+      "name": "New York University",
+      "location": "New York City, NY",
+      "key_programs": [
+        "MS in Computer Science (Courant Institute) — AI/ML/Vision specializations",
+        "MS in Data Science (Center for Data Science)",
+        "MS in Mechatronics and Robotics",
+        "MS in Emerging Technologies (online)"
+      ],
+      "rankings": {
+        "times_higher_education_cs_2026": {
+          "us_rank": 15,
+          "score": 85.4
+        },
+        "mastersinai_org_2026": 16
+      },
+      "alumni_data": {
+        "openai": 41
+      },
+      "apple_scholars_aiml": {
+        "2025": true,
+        "scholars": ["Majid Daliri (Privacy Preserving ML)"]
+      },
+      "notable_connections": [
+        "Courant Institute — world's most respected math/CS institution",
+        "Yann LeCun (Meta Chief AI Scientist, foundational deep learning figure)",
+        "Saining Xie (PAMI Young Researcher Award at CVPR 2025)",
+        "Member of Empire AI consortium",
+        "Located in NYC with 2,000+ AI startups"
+      ],
+      "why_notable": "Home to Yann LeCun, Meta's Chief AI Scientist and deep learning pioneer (won Queen Elizabeth Prize for Engineering 2025). 41 OpenAI alumni."
+    },
+    {
+      "rank": 12,
+      "name": "Columbia University",
+      "location": "New York City, NY",
+      "key_programs": [
+        "MS in Computer Science — Machine Learning, NLP, Computer Vision/Robotics tracks",
+        "MS in Data Science",
+        "Online MS in CS"
+      ],
+      "rankings": {
+        "times_higher_education_cs_2026": {
+          "us_rank": 12,
+          "score": 86.6
+        },
+        "mastersinai_org_2026": 8
+      },
+      "apple_scholars_aiml": {
+        "2026": true,
+        "scholars": ["Sruthi Sudhakar (Interactive ML and Agents)"]
+      },
+      "notable_connections": [
+        "NSF-funded AI Research Institute for Artificial and Natural Intelligence (ARNI)",
+        "Center of AI Technology (CAIT) — joint Amazon project, 70+ faculty",
+        "PhD students at Google (Cortex agentic system, Summer 2025)",
+        "Microsoft Research AI Frontiers fellowships (2025)"
+      ],
+      "why_notable": "Runs NSF-funded AI Research Institute ARNI and Amazon's CAIT center with 70+ faculty. Location in NYC provides proximity to major tech firms."
+    },
+    {
+      "rank": 13,
+      "name": "University of California, San Diego",
+      "location": "San Diego, CA",
+      "key_programs": [
+        "MS in Computer Science and Engineering (AI/ML track)",
+        "MS in ECE — Machine Learning and Data Science",
+        "MS in ECE — Intelligent Systems, Robotics and Control"
+      ],
+      "rankings": {
+        "times_higher_education_cs_2026": {
+          "us_rank": 19,
+          "score": 83.4
+        },
+        "csrankings_2025_ai": {
+          "us_rank": 5
+        },
+        "us_news_ai_specialty": 10,
+        "mastersinai_org_2025": 12
+      },
+      "alumni_data": {
+        "tech_companies_top_15": 462
+      },
+      "apple_scholars_aiml": {
+        "2026": true,
+        "scholars": ["Jianglong Ye"]
+      },
+      "notable_connections": [
+        "New School of Computing, Information and Data Science (approved 2024, launching 2025)",
+        "Jacobs School of Engineering — $329M in research expenditures",
+        "World leaders in computer vision, robotics, RL, NLP, data mining",
+        "Max earnings of UCSD MS AI grads exceed $300K"
+      ],
+      "why_notable": "#5 in CSRankings 2025 AI category. New School of Computing launched 2025. Max MS AI graduate earnings exceed $300K."
+    },
+    {
+      "rank": 14,
+      "name": "University of Texas at Austin",
+      "location": "Austin, TX",
+      "key_programs": [
+        "MS in Computer Science (on-campus, AI/ML concentration)",
+        "Online MS in Artificial Intelligence (OMSAI) — ~$10,000 total via edX",
+        "Graduate Certificate in AI and Machine Learning (CAIML)"
+      ],
+      "rankings": {
+        "times_higher_education_cs_2026": {
+          "us_rank": 16,
+          "score": 84.6
+        },
+        "us_news_grad_cs": 7,
+        "mastersinai_org_2026": 15
+      },
+      "apple_scholars_aiml": {
+        "2025": true,
+        "scholars": ["Konstantinos Stavropoulos (ML Theory)"]
+      },
+      "notable_connections": [
+        "45+ AI faculty",
+        "Austin = #3 US tech hub (Tesla, Oracle, Apple, Google, Dell)",
+        "One of first fully online MSAI programs via edX",
+        "200+ tech companies relocated major offices to Austin"
+      ],
+      "why_notable": "Austin became #3 US tech hub creating exceptional proximity-based hiring pipelines. One of first fully online MSAI programs via edEx (~$10K total)."
+    },
+    {
+      "rank": 15,
+      "name": "Harvard University",
+      "location": "Cambridge, MA",
+      "key_programs": [
+        "SM/MS in Computer Science (SEAS)",
+        "Master's in Computational Science and Engineering (CSE)",
+        "Master's in Data Science (joint SEAS/FAS)"
+      ],
+      "rankings": {
+        "times_higher_education_cs_2026": {
+          "us_rank": 5,
+          "score": 93.8
+        }
+      },
+      "alumni_data": {
+        "openai": 71
+      },
+      "apple_scholars_aiml": {
+        "2025": true,
+        "scholars": ["Tian Qin"]
+      },
+      "notable_connections": [
+        "Boaz Barak (tenured prof → full-time at OpenAI)",
+        "Fernanda Viégas & Martin Wattenberg (Google DeepMind Principal Research Scientists)",
+        "Hima Lakkaraju (Google Research 2025)",
+        "Ariel Procaccia (Meta Superintelligence Labs 2025)",
+        "Partnerships with Meta, Amazon, OpenAI, Google",
+        "CS50 official sponsors: Meta, Amazon, Google, Microsoft, OpenAI, GitHub"
+      ],
+      "why_notable": "#5 in Times Higher Education CS 2026. Multiple faculty hold concurrent positions at OpenAI, Google DeepMind, Meta, Microsoft Research."
+    },
+    {
+      "rank": 16,
+      "name": "University of Southern California",
+      "location": "Los Angeles, CA",
+      "key_programs": [
+        "MS in Computer Science — Artificial Intelligence specialization",
+        "MS in ECE — Machine Learning and Data Science",
+        "MS in Applied Data Science (online)"
+      ],
+      "rankings": {
+        "mastersinai_org_2026": 11
+      },
+      "alumni_data": {
+        "openai": 46
+      },
+      "apple_scholars_aiml": false,
+      "notable_connections": [
+        "$1 billion investment in AI through Frontiers of Computing initiative",
+        "Information Sciences Institute (ISI) — leading AI research division",
+        "Average 2025 MS CS-AI graduate salary: $129,667",
+        "LA tech and entertainment AI ecosystem"
+      ],
+      "why_notable": "$1 billion AI investment through Frontiers of Computing. ISI houses world-leading AI research division. LA location provides access to tech/entertainment AI ecosystem."
+    },
+    {
+      "rank": 17,
+      "name": "UCLA (University of California, Los Angeles)",
+      "location": "Los Angeles, CA",
+      "key_programs": [
+        "MS in Computer Science",
+        "Master of Engineering in Artificial Intelligence",
+        "MEng in Robotics and Autonomous Systems"
+      ],
+      "rankings": {
+        "times_higher_education_cs_2026": {
+          "us_rank": 9,
+          "score": 90.6
+        }
+      },
+      "alumni_data": {
+        "openai": 62,
+        "tech_companies_top_15": 394
+      },
+      "apple_scholars_aiml": {
+        "2026": true,
+        "scholars": ["Shufan Li (ML Algorithms and Architectures)"]
+      },
+      "notable_connections": [
+        "Center for AI and SMART Health",
+        "45% of undergraduates participate in research",
+        "Amazon top employer",
+        "Meta, Google, Amazon, Apple major LA offices"
+      ],
+      "why_notable": "#9 in Times Higher Education CS 2026. 62 OpenAI alumni. Located in LA's growing tech ecosystem."
+    },
+    {
+      "rank": 18,
+      "name": "University of Maryland, College Park",
+      "location": "College Park, MD",
+      "key_programs": [
+        "MS in Computer Science",
+        "MS in Applied Machine Learning",
+        "Professional MS in Machine Learning",
+        "MS in Electrical and Computer Engineering"
+      ],
+      "rankings": {
+        "csrankings_2025_ai": {
+          "us_rank": 3
+        },
+        "us_news_grad_cs": 16
+      },
+      "apple_scholars_aiml": {
+        "2026": true,
+        "scholars": ["Ming Li (Data-Centric AI)"]
+      },
+      "notable_connections": [
+        "Strong ties to government (NSF, DARPA, NIH, Army Research Lab)",
+        "DC proximity — growing AI policy ecosystem",
+        "Climbed in 2026 US News rankings (#9 among public institutions)"
+      ],
+      "why_notable": "Underrated: #3 in CSRankings 2025 AI category driven by strong research publication output. Government agency connections (NSF, DARPA, NIH)."
+    },
+    {
+      "rank": 19,
+      "name": "University of Pennsylvania",
+      "location": "Philadelphia, PA",
+      "key_programs": [
+        "MSE in Computer and Information Science — AI specialization",
+        "Online MSE in Artificial Intelligence",
+        "MSE in Data Science"
+      ],
+      "rankings": {
+        "times_higher_education_cs_2026": {
+          "us_rank": 20,
+          "score": 81.3
+        },
+        "mastersinai_org_2026": 9
+      },
+      "apple_scholars_aiml": {
+        "2026": true,
+        "scholars": ["Fengrui Tian (Computer Vision)"]
+      },
+      "notable_connections": [
+        "Wharton-SEAS combination — unique AI-for-business credibility",
+        "GRASP Lab (General Robotics, Automation, Sensing and Perception) — oldest robotics labs",
+        "Philadelphia/NYC tech corridor proximity",
+        "Online MSE-AI program popular for working professionals"
+      ],
+      "why_notable": "Wharton-SEAS combination gives unique AI-for-business credibility. GRASP Lab is one of oldest robotics labs in US. Online MSE-AI for working professionals."
+    },
+    {
+      "rank": 20,
+      "name": "Duke University",
+      "location": "Durham, NC",
+      "key_programs": [
+        "Master of Engineering in AI for Product Innovation (on-campus and online, 12–24 months)",
+        "MS in Electrical and Computer Engineering (ML track)",
+        "MS in Statistical Science (Machine Learning focus)"
+      ],
+      "rankings": {
+        "mastersinai_org_2025": 6
+      },
+      "apple_scholars_aiml": {
+        "2025": true,
+        "scholars": [
+          "Srikar Katta (AI for Health)",
+          "Ruoyu Xie (Information Retrieval)"
+        ]
+      },
+      "notable_connections": [
+        "MEng AI for Product Innovation — combines technical AI with business/product development",
+        "2,500+ faculty with 6:1 student-faculty ratio",
+        "Research Triangle (Raleigh-Durham) — one of fastest-growing tech hubs",
+        "IBM, Red Hat, Cisco, SAS major employers"
+      ],
+      "why_notable": "Distinctive MEng in AI for Product Innovation combines rigorous technical AI with business and product development. Research Triangle location provides growth opportunity."
+    }
+  ],
+  "ranking_summary_table": [
+    {
+      "rank": 1,
+      "university": "Carnegie Mellon",
+      "the_2026_score": "95.5 (#4)",
+      "csrankings_ai_2025": "Top 5",
+      "mango_rank": "#1 (6.88%)",
+      "openai_alumni": 255,
+      "tech_feeder_count": 530,
+      "notable": "World's first standalone ML dept"
+    },
+    {
+      "rank": 2,
+      "university": "Stanford",
+      "the_2026_score": "95.9 (#3)",
+      "csrankings_ai_2025": "Top 5",
+      "mango_rank": "#4 (3.12%)",
+      "openai_alumni": 230,
+      "tech_feeder_count": 458,
+      "notable": "OpenAI #1 raw count"
+    },
+    {
+      "rank": 3,
+      "university": "MIT",
+      "the_2026_score": "96.2 (#1)",
+      "csrankings_ai_2025": "Top 5",
+      "mango_rank": "—",
+      "openai_alumni": 107,
+      "tech_feeder_count": "—",
+      "notable": "QS #1 DS&AI globally"
+    },
+    {
+      "rank": 4,
+      "university": "UC Berkeley",
+      "the_2026_score": "92.8 (#7)",
+      "csrankings_ai_2025": "Top 5",
+      "mango_rank": "—",
+      "openai_alumni": 167,
+      "tech_feeder_count": 1041,
+      "notable": "Biggest raw tech feeder"
+    },
+    {
+      "rank": 5,
+      "university": "UIUC",
+      "the_2026_score": "89.6 (#10)",
+      "csrankings_ai_2025": "#2",
+      "mango_rank": "—",
+      "openai_alumni": "—",
+      "tech_feeder_count": 598,
+      "notable": "CSRankings AI #2 US"
+    },
+    {
+      "rank": 6,
+      "university": "UW Seattle",
+      "the_2026_score": "89.1 (#11)",
+      "csrankings_ai_2025": "Top 10",
+      "mango_rank": "#5 (2.57%)",
+      "openai_alumni": 42,
+      "tech_feeder_count": 511,
+      "notable": "Microsoft partnership 2026"
+    },
+    {
+      "rank": 7,
+      "university": "Georgia Tech",
+      "the_2026_score": "85.6 (#14)",
+      "csrankings_ai_2025": "#4",
+      "mango_rank": "—",
+      "openai_alumni": "—",
+      "tech_feeder_count": 436,
+      "notable": "OMSCS $7K, Apple Scholar 2025"
+    },
+    {
+      "rank": 8,
+      "university": "Cornell",
+      "the_2026_score": "90.7 (#8)",
+      "csrankings_ai_2025": "Top 10",
+      "mango_rank": "—",
+      "openai_alumni": "—",
+      "tech_feeder_count": 403,
+      "notable": "Apple Scholar 2026"
+    },
+    {
+      "rank": 9,
+      "university": "U Michigan",
+      "the_2026_score": "84.4 (#17)",
+      "csrankings_ai_2025": "Top 10",
+      "mango_rank": "—",
+      "openai_alumni": "—",
+      "tech_feeder_count": 561,
+      "notable": "Apple Scholar 2025 (×2)"
+    },
+    {
+      "rank": 10,
+      "university": "Princeton",
+      "the_2026_score": "96.1 (#2)",
+      "csrankings_ai_2025": "Top 10",
+      "mango_rank": "—",
+      "openai_alumni": 34,
+      "tech_feeder_count": "—",
+      "notable": "Amodei (Anthropic CEO)"
+    },
+    {
+      "rank": 11,
+      "university": "NYU",
+      "the_2026_score": "85.4 (#15)",
+      "csrankings_ai_2025": "Top 15",
+      "mango_rank": "—",
+      "openai_alumni": 41,
+      "tech_feeder_count": "—",
+      "notable": "Yann LeCun (Meta FAIR)"
+    },
+    {
+      "rank": 12,
+      "university": "Columbia",
+      "the_2026_score": "86.6 (#12)",
+      "csrankings_ai_2025": "Top 15",
+      "mango_rank": "—",
+      "openai_alumni": "—",
+      "tech_feeder_count": "—",
+      "notable": "Amazon CAIT, NSF ARNI"
+    },
+    {
+      "rank": 13,
+      "university": "UCSD",
+      "the_2026_score": "83.4 (#19)",
+      "csrankings_ai_2025": "#5",
+      "mango_rank": "—",
+      "openai_alumni": "—",
+      "tech_feeder_count": 462,
+      "notable": "New School of Computing"
+    },
+    {
+      "rank": 14,
+      "university": "UT Austin",
+      "the_2026_score": "84.6 (#16)",
+      "csrankings_ai_2025": "Top 15",
+      "mango_rank": "—",
+      "openai_alumni": "—",
+      "tech_feeder_count": "—",
+      "notable": "$10K online MSAI"
+    },
+    {
+      "rank": 15,
+      "university": "Harvard",
+      "the_2026_score": "93.8 (#5)",
+      "csrankings_ai_2025": "Top 15",
+      "mango_rank": "—",
+      "openai_alumni": 71,
+      "tech_feeder_count": "—",
+      "notable": "Faculty at OpenAI/DeepMind"
+    },
+    {
+      "rank": 16,
+      "university": "USC",
+      "the_2026_score": "—",
+      "csrankings_ai_2025": "Top 20",
+      "mango_rank": "—",
+      "openai_alumni": 46,
+      "tech_feeder_count": "—",
+      "notable": "$1B AI investment"
+    },
+    {
+      "rank": 17,
+      "university": "UCLA",
+      "the_2026_score": "90.6 (#9)",
+      "csrankings_ai_2025": "Top 15",
+      "mango_rank": "—",
+      "openai_alumni": 62,
+      "tech_feeder_count": 394,
+      "notable": "Apple Scholar 2026"
+    },
+    {
+      "rank": 18,
+      "university": "UMD",
+      "the_2026_score": "Top 30",
+      "csrankings_ai_2025": "#3",
+      "mango_rank": "—",
+      "openai_alumni": "—",
+      "tech_feeder_count": "—",
+      "notable": "CSRankings AI #3 underrated"
+    },
+    {
+      "rank": 19,
+      "university": "UPenn",
+      "the_2026_score": "81.3 (#20)",
+      "csrankings_ai_2025": "Top 20",
+      "mango_rank": "—",
+      "openai_alumni": "—",
+      "tech_feeder_count": "—",
+      "notable": "GRASP Robotics Lab"
+    },
+    {
+      "rank": 20,
+      "university": "Duke",
+      "the_2026_score": "—",
+      "csrankings_ai_2025": "Top 20",
+      "mango_rank": "—",
+      "openai_alumni": "—",
+      "tech_feeder_count": "—",
+      "notable": "Apple Scholar 2025 (×2)"
+    }
+  ],
+  "ranking_signals": [
+    {
+      "source": "CSRankings.org",
+      "year": 2025,
+      "measures": "AI research publication output at top conferences (ICML, NeurIPS, CVPR, ACL, ICLR, AAAI)"
+    },
+    {
+      "source": "Times Higher Education CS Rankings",
+      "year": 2026,
+      "measures": "Overall CS department quality score"
+    },
+    {
+      "source": "QS Data Science & AI Rankings",
+      "year": "2025-2026",
+      "measures": "Global AI/ML academic ranking"
+    },
+    {
+      "source": "US News Best Graduate CS Programs",
+      "year": "2025-2026",
+      "measures": "Peer reputation + specialty (AI) ranking"
+    },
+    {
+      "source": "MANGO/ResumeGenius Report",
+      "year": "2025-2026",
+      "measures": "Alumni share at Microsoft, Apple, NVIDIA, Google, OpenAI"
+    },
+    {
+      "source": "College Transitions Tech Feeder Data",
+      "year": 2025,
+      "measures": "Raw employee count at top 15 tech firms (Google, Meta, Amazon, Microsoft, Apple, etc.)"
+    },
+    {
+      "source": "OpenAI Alumni Analysis (36kr)",
+      "year": 2025,
+      "measures": "LinkedIn-sourced, per-university OpenAI headcount"
+    },
+    {
+      "source": "Apple Scholars in AIML",
+      "year": "2025-2026",
+      "measures": "Merit-based PhD selection signal — best indicator of cutting-edge ML research capability"
+    }
+  ]
+}

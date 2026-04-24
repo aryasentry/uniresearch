@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MS AI University Dashboard 2025-2026</title>
+    <style>
+        :root {
+            --bg: #f5f7f4;
+            --surface: rgba(255, 255, 255, 0.84);
+            --surface-strong: #ffffff;
+            --surface-muted: #eef2eb;
+            --border: rgba(20, 30, 24, 0.08);
+            --border-strong: rgba(20, 30, 24, 0.16);
+            --text: #101814;
+            --text-soft: #55615b;
+            --text-faint: #7a857f;
+            --accent: #1b6b57;
+            --accent-soft: rgba(27, 107, 87, 0.12);
+            --accent-strong: #0f4f41;
+            --warning: #8b5e1a;
+            --danger: #8a2f2f;
+            --success: #256a48;
+            --shadow: 0 20px 60px rgba(14, 23, 18, 0.08);
+            --radius-xl: 28px;
+            --radius-lg: 20px;
+            --radius-md: 14px;
+            --radius-sm: 10px;
+            --font-sans: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-sans);
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(62, 134, 103, 0.16), transparent 24rem),
+                radial-gradient(circle at top right, rgba(196, 214, 183, 0.55), transparent 26rem),
+                linear-gradient(180deg, #f7faf7 0%, #eef3ef 100%);
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        .page-shell {
+            width: min(1680px, calc(100% - 32px));
+            margin: 18px auto 40px;
+        }
+
+        .toolbar {
+            position: sticky;
+            top: 14px;
+            z-index: 20;
+            display: grid;
+            gap: 12px;
+            grid-template-columns: minmax(280px, 1.45fr) repeat(3, minmax(170px, 0.7fr)) auto;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.76);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            backdrop-filter: blur(18px);
+            box-shadow: 0 12px 30px rgba(14, 23, 18, 0.06);
+        }
+
+        .control {
+            display: grid;
+            gap: 7px;
+        }
+
+        .control label {
+            font-size: 12px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+            font-weight: 700;
+        }
+
+        .control input,
+        .control select {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: rgba(249, 251, 249, 0.95);
+            color: var(--text);
+            outline: none;
+        }
+
+        .control input:focus,
+        .control select:focus {
+            border-color: rgba(27, 107, 87, 0.35);
+            box-shadow: 0 0 0 4px rgba(27, 107, 87, 0.12);
+        }
+
+        .toolbar-actions {
+            display: flex;
+            align-items: end;
+            gap: 10px;
+        }
+
+        .ghost-button,
+        .pill-button {
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 14px;
+            padding: 12px 14px;
+            color: var(--text);
+            cursor: pointer;
+            transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+        }
+
+        .pill-button:hover,
+        .ghost-button:hover {
+            transform: translateY(-1px);
+            border-color: var(--border-strong);
+        }
+
+        .pill-button.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #ffffff;
+        }
+
+        .tab-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .stats-grid {
+            display: grid;
+            gap: 14px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            margin-top: 18px;
+        }
+
+        .stat-card {
+            padding: 18px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 26px rgba(18, 26, 21, 0.04);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-faint);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .stat-value {
+            font-size: clamp(1.35rem, 2vw, 2rem);
+            letter-spacing: -0.04em;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .stat-subtitle {
+            color: var(--text-soft);
+            font-size: 0.95rem;
+            line-height: 1.45;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 336px minmax(0, 1fr);
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .panel {
+            background: rgba(255, 255, 255, 0.78);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(18px);
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 118px;
+            max-height: calc(100vh - 138px);
+            overflow: auto;
+            padding: 16px;
+        }
+
+        .sidebar-top {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .sidebar-title {
+            margin: 0;
+            font-size: 1.05rem;
+        }
+
+        .sidebar-caption {
+            margin-top: 4px;
+            color: var(--text-soft);
+            font-size: 0.92rem;
+        }
+
+        .count-chip {
+            white-space: nowrap;
+            padding: 7px 10px;
+            border-radius: 999px;
+            background: var(--surface-muted);
+            color: var(--accent-strong);
+            font-size: 0.83rem;
+            font-weight: 700;
+        }
+
+        .university-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .uni-list-item {
+            width: 100%;
+            text-align: left;
+            border: 1px solid transparent;
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 14px;
+            cursor: pointer;
+            transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+        }
+
+        .uni-list-item:hover {
+            transform: translateY(-1px);
+            border-color: rgba(27, 107, 87, 0.18);
+            box-shadow: 0 10px 24px rgba(15, 30, 24, 0.06);
+        }
+
+        .uni-list-item.active {
+            border-color: rgba(27, 107, 87, 0.28);
+            background: linear-gradient(180deg, rgba(27, 107, 87, 0.08), rgba(255, 255, 255, 0.98));
+        }
+
+        .uni-list-rank {
+            display: inline-flex;
+            min-width: 38px;
+            height: 38px;
+            border-radius: 14px;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-soft);
+            color: var(--accent-strong);
+            font-size: 0.94rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .uni-list-name {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            line-height: 1.35;
+        }
+
+        .uni-list-meta {
+            color: var(--text-soft);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .uni-list-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: var(--surface-muted);
+            color: var(--text-soft);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .tag.success {
+            background: rgba(37, 106, 72, 0.12);
+            color: var(--success);
+        }
+
+        .tag.warning {
+            background: rgba(139, 94, 26, 0.12);
+            color: var(--warning);
+        }
+
+        .tag.danger {
+            background: rgba(138, 47, 47, 0.12);
+            color: var(--danger);
+        }
+
+        .content-panel {
+            padding: 18px;
+            min-height: 900px;
+        }
+
+        .view {
+            display: none;
+        }
+
+        .view.active {
+            display: block;
+        }
+
+        .cards-grid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .university-card {
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 20px;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 250, 246, 0.92));
+            cursor: pointer;
+            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+        }
+
+        .university-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 44px rgba(18, 32, 25, 0.08);
+            border-color: rgba(27, 107, 87, 0.2);
+        }
+
+        .card-top {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 14px;
+        }
+
+        .rank-badge {
+            width: 50px;
+            height: 50px;
+            border-radius: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, rgba(27, 107, 87, 0.14), rgba(27, 107, 87, 0.06));
+            color: var(--accent-strong);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        .card-title {
+            margin: 0 0 6px;
+            font-size: 1.18rem;
+            line-height: 1.25;
+        }
+
+        .card-subtitle {
+            margin: 0;
+            color: var(--text-soft);
+            font-size: 0.92rem;
+        }
+
+        .metric-grid {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin-bottom: 16px;
+        }
+
+        .metric-box {
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 12px;
+            background: rgba(248, 251, 248, 0.85);
+        }
+
+        .metric-label {
+            color: var(--text-faint);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-size: 0.72rem;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .metric-value {
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .metric-note {
+            margin-top: 4px;
+            color: var(--text-soft);
+            font-size: 0.84rem;
+            line-height: 1.4;
+        }
+
+        .list-block {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+        }
+
+        .list-title {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-faint);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .chip-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 7px 11px;
+            border-radius: 999px;
+            background: rgba(27, 107, 87, 0.08);
+            color: var(--accent-strong);
+            font-size: 0.82rem;
+            line-height: 1.3;
+        }
+
+        .card-why {
+            margin-top: 14px;
+            color: var(--text-soft);
+            line-height: 1.55;
+            font-size: 0.94rem;
+        }
+
+        .section-block {
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.86);
+        }
+
+        .section-block + .section-block {
+            margin-top: 16px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            margin: 0;
+            font-size: 1.18rem;
+            letter-spacing: -0.03em;
+        }
+
+        .section-subtitle {
+            margin: 6px 0 0;
+            color: var(--text-soft);
+            line-height: 1.5;
+        }
+
+        .highlight-grid {
+            display: grid;
+            gap: 14px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        }
+
+        .highlight-card {
+            border-radius: 18px;
+            padding: 16px;
+            background: linear-gradient(180deg, rgba(246, 250, 246, 0.9), #ffffff);
+            border: 1px solid var(--border);
+        }
+
+        .highlight-card .metric-value {
+            font-size: 1.1rem;
+        }
+
+        .detail-layout {
+            display: grid;
+            gap: 16px;
+        }
+
+        .detail-header-card {
+            padding: 26px;
+            border-radius: 26px;
+            border: 1px solid var(--border);
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(241, 247, 242, 0.94)),
+                linear-gradient(120deg, rgba(27, 107, 87, 0.09), transparent);
+        }
+
+        .detail-header-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            align-items: start;
+        }
+
+        .detail-rank {
+            display: inline-flex;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent-strong);
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+
+        .detail-name {
+            margin: 0;
+            font-size: clamp(1.8rem, 3vw, 3rem);
+            line-height: 1.02;
+            letter-spacing: -0.05em;
+        }
+
+        .detail-location {
+            margin-top: 10px;
+            color: var(--text-soft);
+            font-size: 1rem;
+        }
+
+        .detail-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .detail-summary {
+            margin-top: 18px;
+            color: var(--text-soft);
+            line-height: 1.7;
+            font-size: 0.98rem;
+            max-width: 88ch;
+        }
+
+        .detail-panels {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .kv-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .kv-item {
+            padding: 14px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .kv-item:first-child {
+            border-top: 0;
+            padding-top: 0;
+        }
+
+        .kv-key {
+            font-size: 0.8rem;
+            color: var(--text-faint);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .kv-value {
+            color: var(--text);
+            line-height: 1.65;
+            word-break: break-word;
+        }
+
+        .kv-value code {
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+            padding: 2px 6px;
+            border-radius: 8px;
+            background: rgba(17, 24, 39, 0.06);
+        }
+
+        .list-clean {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .faculty-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .faculty-card {
+            padding: 14px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: rgba(248, 251, 248, 0.86);
+        }
+
+        .faculty-name {
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .faculty-meta {
+            color: var(--text-soft);
+            line-height: 1.55;
+            font-size: 0.93rem;
+        }
+
+        .table-wrap {
+            overflow: auto;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: #ffffff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 780px;
+        }
+
+        th,
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+            text-align: left;
+            vertical-align: top;
+            line-height: 1.5;
+        }
+
+        th {
+            position: sticky;
+            top: 0;
+            background: #f6faf7;
+            color: var(--text-soft);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 800;
+            z-index: 1;
+        }
+
+        tbody tr {
+            cursor: pointer;
+            transition: background 140ms ease;
+        }
+
+        tbody tr:hover {
+            background: rgba(27, 107, 87, 0.05);
+        }
+
+        .insight-grid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .insight-card {
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 18px;
+            background: linear-gradient(180deg, rgba(250, 252, 250, 0.96), #ffffff);
+        }
+
+        .recursive-layout {
+            display: grid;
+            gap: 14px;
+        }
+
+        .recursive-object {
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 16px;
+            background: rgba(249, 251, 249, 0.92);
+        }
+
+        .recursive-title {
+            margin: 0 0 12px;
+            font-size: 0.95rem;
+            letter-spacing: -0.02em;
+        }
+
+        .empty-state {
+            padding: 42px 24px;
+            text-align: center;
+            color: var(--text-soft);
+            border: 1px dashed var(--border-strong);
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .loading-state {
+            min-height: 460px;
+            display: grid;
+            place-items: center;
+        }
+
+        .loading-card {
+            text-align: center;
+            max-width: 480px;
+            padding: 36px 26px;
+        }
+
+        .spinner {
+            width: 46px;
+            height: 46px;
+            margin: 0 auto 16px;
+            border-radius: 999px;
+            border: 3px solid rgba(27, 107, 87, 0.15);
+            border-top-color: var(--accent);
+            animation: spin 0.9s linear infinite;
+        }
+
+        .status-line {
+            margin-top: 12px;
+            color: var(--text-faint);
+            font-size: 0.92rem;
+        }
+
+        .footer-note {
+            margin-top: 18px;
+            padding: 18px 20px;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            color: var(--text-soft);
+            background: rgba(255, 255, 255, 0.74);
+            line-height: 1.65;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 1240px) {
+            .toolbar {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .toolbar-actions {
+                justify-content: flex-start;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                max-height: none;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .detail-panels,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .page-shell {
+                width: min(100% - 20px, 1680px);
+                margin-top: 10px;
+            }
+
+            .content-panel,
+            .sidebar {
+                padding: 18px;
+            }
+
+            .toolbar {
+                grid-template-columns: 1fr;
+                top: 8px;
+            }
+
+            .cards-grid,
+            .highlight-grid,
+            .insight-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metric-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-header-top {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-shell">
+        <section class="toolbar panel">
+            <div class="control">
+                <label for="searchInput">Search</label>
+                <input id="searchInput" type="search" placeholder="Search by university, program, professor, city, signal, requirement..." />
+            </div>
+            <div class="control">
+                <label for="visaFilter">Visa Score</label>
+                <select id="visaFilter">
+                    <option value="all">All scores</option>
+                    <option value="9">9/10 and above</option>
+                    <option value="8">8/10 and above</option>
+                    <option value="7">7/10 and above</option>
+                </select>
+            </div>
+            <div class="control">
+                <label for="greFilter">GRE</label>
+                <select id="greFilter">
+                    <option value="all">All GRE statuses</option>
+                    <option value="required">Required</option>
+                    <option value="recommended">Recommended</option>
+                    <option value="optional">Optional / Waived</option>
+                </select>
+            </div>
+            <div class="control">
+                <label for="sortSelect">Sort</label>
+                <select id="sortSelect">
+                    <option value="rank">Overall rank</option>
+                    <option value="visa">Visa score</option>
+                    <option value="openai">OpenAI alumni</option>
+                    <option value="tech">Top tech feeder count</option>
+                    <option value="alphabetical">Alphabetical</option>
+                </select>
+            </div>
+            <div class="toolbar-actions">
+                <button class="ghost-button" id="resetFiltersBtn" type="button">Reset</button>
+            </div>
+        </section>
+
+        <div class="tab-row" id="tabRow">
+            <button class="pill-button active" type="button" data-view="cards">Cards</button>
+            <button class="pill-button" type="button" data-view="detail">Deep Dive</button>
+            <button class="pill-button" type="button" data-view="compare">Compare</button>
+            <button class="pill-button" type="button" data-view="insights">Insights</button>
+            <button class="pill-button" type="button" data-view="source">Source Data</button>
+        </div>
+
+        <section class="stats-grid" id="statsGrid"></section>
+
+        <section class="main-grid">
+            <aside class="panel sidebar">
+                <div class="sidebar-top">
+                    <div>
+                        <h2 class="sidebar-title">University Index</h2>
+                        <div class="sidebar-caption">Jump into any school instantly.</div>
+                    </div>
+                    <div class="count-chip" id="resultsCount">0 items</div>
+                </div>
+                <div class="university-list" id="universityList"></div>
+            </aside>
+
+            <main class="panel content-panel">
+                <div id="loadingState" class="loading-state">
+                    <div class="loading-card">
+                        <div class="spinner"></div>
+                        <h2>Loading dashboard data</h2>
+                        <div class="status-line">Merging both university files and preparing all sections.</div>
+                    </div>
+                </div>
+
+                <div id="cardsView" class="view"></div>
+                <div id="detailView" class="view"></div>
+                <div id="compareView" class="view"></div>
+                <div id="insightsView" class="view"></div>
+                <div id="sourceView" class="view"></div>
+            </main>
+        </section>
+
+        <div class="footer-note" id="footerNote">
+            This dashboard is designed to keep every data point accessible. Curated summaries are paired with raw recursive rendering so nothing from the JSON-like sources is silently omitted.
+        </div>
+    </div>
+<!-- EMBEDDED_DATA_START -->
+<script id="embeddedBaseData" type="application/json">
+{"metadata":{"title":"Top 20 USA Universities for MS in Computer Science, AI, Machine Learning & Computational Science","data_year":"2025-2026","methodology":"Based on CSRankings 2025, Times Higher Education CS 2026, US News 2025/2026, QS DS&AI 2025/2026, MANGO alumni data, College Transitions tech feeder data, OpenAI alumni analysis, Apple Scholars AIML 2025/2026","sources":["CSRankings.org 2025","Times Higher Education World CS Rankings 2026","QS World University Rankings — Data Science & AI 2025/2026","US News Best Graduate CS Programs 2025/2026","ResumeGenius MANGO Report 2025-2026","College Transitions Tech Feeder Data 2025","36kr/OpenAI Talent Analysis 2025","Apple Scholars in AIML 2025 & 2026","University official websites and news releases"]},"universities":[{"rank":1,"name":"Carnegie Mellon University","location":"Pittsburgh, PA","key_programs":["MS in Machine Learning (MSML)","MS in Artificial Intelligence and Innovation (MSAII)","MS in Computer Vision (MSCV)","MS in Robotics (MSR)","MS in Language Technologies (MSLT)","MS in Computational Data Science (MCDS)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":4,"score":95.5},"csrankings_2025_ai":"Top 5","us_news_grad_cs":1,"mango_alumni_share_percent":6.88,"mango_rank":1},"alumni_data":{"openai":255,"tech_companies_top_15":530},"apple_scholars_aiml":false,"notable_connections":["World's first standalone Machine Learning Department (founded 2006)","Top feeder to Google (2.62%), Meta (1.36%), Apple (1.15%), NVIDIA","1,400+ researchers","DARPA partnerships","Robotics Institute","Language Technologies Institute","Software Engineering Institute"],"why_notable":"CMU has the world's first and only standalone Machine Learning Department. Ranks #1 by MANGO alumni share — CMU alumni constitute 6.88% of all employees across Microsoft, Apple, Nvidia, Google, and OpenAI combined."},{"rank":2,"name":"Stanford University","location":"Stanford, CA","key_programs":["MS in Computer Science (AI specialization)","MS in Statistics (Machine Learning track)","Stanford AI Professional Program (online certificates)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":3,"score":95.9},"csrankings_2025_ai":"Top 5","us_news_grad_cs":1,"mango_alumni_share_percent":3.12,"mango_rank":4},"alumni_data":{"openai":230,"tech_companies_top_15":458,"anthropic":359},"apple_scholars_aiml":false,"notable_connections":["Stanford Artificial Intelligence Laboratory (SAIL)","Human-centered AI Institute (HAI)","Co-founders and executives at OpenAI and Anthropic","Fei-Fei Li — co-created ImageNet"],"why_notable":"#1 feeder to OpenAI and Anthropic by raw headcount — 589 Stanford alumni at these two frontier AI companies alone. OpenAI has 230 Stanford graduates (13% of OpenAI's entire workforce from top 3 schools)."},{"rank":3,"name":"Massachusetts Institute of Technology","location":"Cambridge, MA","key_programs":["MS in Electrical Engineering and Computer Science (EECS)","Master of Science in Computation for Design and Optimization","Master of Science in Computational Science and Engineering"],"rankings":{"times_higher_education_cs_2026":{"us_rank":1,"score":96.2},"qs_ds_ai_2025":1,"qs_ds_ai_2026":1,"csrankings_2025_ai":"Top 5","us_news_grad_cs":1},"alumni_data":{"openai":107},"apple_scholars_aiml":{"2025":true,"2026":true,"scholars":["Cathy Mengying Fang (2025)","Mahbod Majid (2026)"]},"notable_connections":["CSAIL (Computer Science and Artificial Intelligence Laboratory) — largest AI/CS research lab","AI + Decision Making initiative","93%+ of students do research via UROP program"],"why_notable":"MIT ranks #1 in QS Data Science & AI 2025 and 2026, and #1 in Times Higher Education CS 2026. CSAIL is the largest AI/CS research lab in the world."},{"rank":4,"name":"University of California, Berkeley","location":"Berkeley, CA","key_programs":["MS in Electrical Engineering and Computer Sciences (EECS)","MS in Computer Science (AI/ML track)","Master of Engineering (Robotics)","Professional ML Certificate (online)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":7,"score":92.8},"csrankings_2025_ai":"Top 5","us_news_grad_cs":1},"alumni_data":{"openai":167,"tech_companies_top_15":1041},"apple_scholars_aiml":false,"notable_connections":["BAIR (Berkeley AI Research) Lab","CHAI (Center for Human-Compatible AI)","John Schulman (OpenAI co-founder, ChatGPT lead architect)","PyTorch and RL algorithms originated here","48% of undergraduates participate in research"],"why_notable":"Single largest feeder to Big Tech by total headcount — 1,041 alumni across top 15 tech firms (Google, Meta, Apple, Amazon, Microsoft), more than any other US university."},{"rank":5,"name":"University of Illinois at Urbana-Champaign","location":"Champaign-Urbana, IL","key_programs":["MS in Computer Science (AI/ML specialization, thesis-based)","MCS (Professional Master's in CS) — online and on-campus","MEng in Autonomy and Robotics","MS in Statistics (Data Science track)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":10,"score":89.6},"csrankings_2025_ai":{"us_rank":2},"us_news_grad_cs":5},"alumni_data":{"tech_companies_top_15":598},"apple_scholars_aiml":false,"notable_connections":["120+ corporations in on-campus Research Park (Google, Microsoft, Amazon)","Siebel School of Computing with specialized AI pathways","91% of CS grads land their next destination within 6 months"],"why_notable":"Ranks #2 overall by total tech employees at top 15 firms with 598 employees. CSRankings 2025: #2 in AI category."},{"rank":6,"name":"University of Washington","location":"Seattle, WA","key_programs":["MS in Computer Science (Paul G. Allen School)","Professional Master's Program (PMP) in CS","MS in Data Science","Online MS in AI and Machine Learning for Engineering"],"rankings":{"times_higher_education_cs_2026":{"us_rank":11,"score":89.1},"mango_alumni_share_percent":2.57,"mango_rank":5},"alumni_data":{"openai":42,"tech_companies_top_15":511},"apple_scholars_aiml":false,"notable_connections":["Microsoft partnership expansion (February 2026)","Ai2 (Allen Institute for AI) partnership (August 2025)","NSF/NVIDIA partnership","18 faculty with concurrent roles at Google, Meta, Microsoft","Noah A. Smith holds 'Amazon Professor of Machine Learning' chair"],"why_notable":"MANGO rank #5 (2.57% share). Microsoft formally expanded partnership in Feb 2026 with advanced AI computing access and 10 additional graduate researcher slots annually."},{"rank":7,"name":"Georgia Institute of Technology","location":"Atlanta, GA","key_programs":["MS in Computer Science (MSCS) — 11 specializations including Machine Learning","MS in Machine Learning (standalone MSML)","Online MS in CS (OMSCS) — ~$7,000 total","MS in Robotics"],"rankings":{"times_higher_education_cs_2026":{"us_rank":14,"score":85.6},"csrankings_2025_ai":{"us_rank":4},"us_news_grad_ai_specialty":5},"alumni_data":{"tech_companies_top_15":436},"apple_scholars_aiml":{"2025":true,"scholars":["Guanghui Wang (PhD)"]},"notable_connections":["OMSCS — 10,000+ enrolled, transformed access to top-tier CS","NSF $20M award for Nexus supercomputer (2024)","50% of undergraduates collaborate on research"],"why_notable":"OMSCS is ranked #1 for online CS graduate programs with ~$7,000 total cost. #4 in total Big Tech employee headcount with 436 employees."},{"rank":8,"name":"Cornell University","location":"Ithaca, NY (+ Cornell Tech, New York City)","key_programs":["Master of Engineering (MEng) in Computer Science","MS in Computer Science (research-focused)","MS in Information Science (AI specialization)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":8,"score":90.7},"us_news_grad_cs":7},"alumni_data":{"tech_companies_top_15":403},"apple_scholars_aiml":{"2026":true,"scholars":["Tobias Weinberg (PhD)"]},"notable_connections":["Only Ivy League with full engineering rigor comparable to MIT/Stanford","Cornell Tech campus in NYC for industry proximity","Leads in AI ethics and responsible AI research","Google is top employer"],"why_notable":"Only Ivy League school with full engineering rigor. #8 in Times Higher Education CS 2026. #9 in total tech employee headcount with 403 employees."},{"rank":9,"name":"University of Michigan, Ann Arbor","location":"Ann Arbor, MI","key_programs":["MS in Computer Science and Engineering (CSE)","MS in Electrical and Computer Engineering (Data Science/ML track)","MS in Robotics","Master of Engineering in ECE (Data Science/ML)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":17,"score":84.4}},"alumni_data":{"tech_companies_top_15":561},"apple_scholars_aiml":{"2025":true,"scholars":["Ruei-Che Chang (AI for Accessibility)","Vinod Raman (Privacy Preserving ML)"]},"notable_connections":["50+ AI faculty","Strong automotive AI partnerships (Ford, Toyota Research Institute)","MIDAS Institute coordinates AI/ML funding","1,300+ students participate in research programs annually"],"why_notable":"#3 in total tech employee headcount with 561 employees. Microsoft is top employer. Apple Scholar 2025 selected 2 Michigan PhD students."},{"rank":10,"name":"Princeton University","location":"Princeton, NJ","key_programs":["MS in Computer Science (research-focused, leading to PhD)","MS in Electrical and Computer Engineering","Certificate in Statistics and Machine Learning (CSML)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":2,"score":96.1},"ai_research_per_student":"2.598 publications (highest in US)"},"alumni_data":{"openai":34},"apple_scholars_aiml":{"2025":true,"2026":true,"scholars":["Abhishek Panigrahi (2025)","Jiachen Wang (2025)","Xindi Wu (2026)"]},"notable_connections":["Dario Amodei (Anthropic CEO, Princeton PhD '11)","Fei-Fei Li (Princeton BA '99, Stanford AI professor)","Six Princetonians on Time's 100 Most Influential AI People","CSML center — most rigorous ML theory program globally"],"why_notable":"#2 in Times Higher Education CS 2026. Leads in per-student AI research output (2.598 AI publications per student, highest in US)."},{"rank":11,"name":"New York University","location":"New York City, NY","key_programs":["MS in Computer Science (Courant Institute) — AI/ML/Vision specializations","MS in Data Science (Center for Data Science)","MS in Mechatronics and Robotics","MS in Emerging Technologies (online)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":15,"score":85.4},"mastersinai_org_2026":16},"alumni_data":{"openai":41},"apple_scholars_aiml":{"2025":true,"scholars":["Majid Daliri (Privacy Preserving ML)"]},"notable_connections":["Courant Institute — world's most respected math/CS institution","Yann LeCun (Meta Chief AI Scientist, foundational deep learning figure)","Saining Xie (PAMI Young Researcher Award at CVPR 2025)","Member of Empire AI consortium","Located in NYC with 2,000+ AI startups"],"why_notable":"Home to Yann LeCun, Meta's Chief AI Scientist and deep learning pioneer (won Queen Elizabeth Prize for Engineering 2025). 41 OpenAI alumni."},{"rank":12,"name":"Columbia University","location":"New York City, NY","key_programs":["MS in Computer Science — Machine Learning, NLP, Computer Vision/Robotics tracks","MS in Data Science","Online MS in CS"],"rankings":{"times_higher_education_cs_2026":{"us_rank":12,"score":86.6},"mastersinai_org_2026":8},"apple_scholars_aiml":{"2026":true,"scholars":["Sruthi Sudhakar (Interactive ML and Agents)"]},"notable_connections":["NSF-funded AI Research Institute for Artificial and Natural Intelligence (ARNI)","Center of AI Technology (CAIT) — joint Amazon project, 70+ faculty","PhD students at Google (Cortex agentic system, Summer 2025)","Microsoft Research AI Frontiers fellowships (2025)"],"why_notable":"Runs NSF-funded AI Research Institute ARNI and Amazon's CAIT center with 70+ faculty. Location in NYC provides proximity to major tech firms."},{"rank":13,"name":"University of California, San Diego","location":"San Diego, CA","key_programs":["MS in Computer Science and Engineering (AI/ML track)","MS in ECE — Machine Learning and Data Science","MS in ECE — Intelligent Systems, Robotics and Control"],"rankings":{"times_higher_education_cs_2026":{"us_rank":19,"score":83.4},"csrankings_2025_ai":{"us_rank":5},"us_news_ai_specialty":10,"mastersinai_org_2025":12},"alumni_data":{"tech_companies_top_15":462},"apple_scholars_aiml":{"2026":true,"scholars":["Jianglong Ye"]},"notable_connections":["New School of Computing, Information and Data Science (approved 2024, launching 2025)","Jacobs School of Engineering — $329M in research expenditures","World leaders in computer vision, robotics, RL, NLP, data mining","Max earnings of UCSD MS AI grads exceed $300K"],"why_notable":"#5 in CSRankings 2025 AI category. New School of Computing launched 2025. Max MS AI graduate earnings exceed $300K."},{"rank":14,"name":"University of Texas at Austin","location":"Austin, TX","key_programs":["MS in Computer Science (on-campus, AI/ML concentration)","Online MS in Artificial Intelligence (OMSAI) — ~$10,000 total via edX","Graduate Certificate in AI and Machine Learning (CAIML)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":16,"score":84.6},"us_news_grad_cs":7,"mastersinai_org_2026":15},"apple_scholars_aiml":{"2025":true,"scholars":["Konstantinos Stavropoulos (ML Theory)"]},"notable_connections":["45+ AI faculty","Austin = #3 US tech hub (Tesla, Oracle, Apple, Google, Dell)","One of first fully online MSAI programs via edX","200+ tech companies relocated major offices to Austin"],"why_notable":"Austin became #3 US tech hub creating exceptional proximity-based hiring pipelines. One of first fully online MSAI programs via edEx (~$10K total)."},{"rank":15,"name":"Harvard University","location":"Cambridge, MA","key_programs":["SM/MS in Computer Science (SEAS)","Master's in Computational Science and Engineering (CSE)","Master's in Data Science (joint SEAS/FAS)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":5,"score":93.8}},"alumni_data":{"openai":71},"apple_scholars_aiml":{"2025":true,"scholars":["Tian Qin"]},"notable_connections":["Boaz Barak (tenured prof → full-time at OpenAI)","Fernanda Viégas & Martin Wattenberg (Google DeepMind Principal Research Scientists)","Hima Lakkaraju (Google Research 2025)","Ariel Procaccia (Meta Superintelligence Labs 2025)","Partnerships with Meta, Amazon, OpenAI, Google","CS50 official sponsors: Meta, Amazon, Google, Microsoft, OpenAI, GitHub"],"why_notable":"#5 in Times Higher Education CS 2026. Multiple faculty hold concurrent positions at OpenAI, Google DeepMind, Meta, Microsoft Research."},{"rank":16,"name":"University of Southern California","location":"Los Angeles, CA","key_programs":["MS in Computer Science — Artificial Intelligence specialization","MS in ECE — Machine Learning and Data Science","MS in Applied Data Science (online)"],"rankings":{"mastersinai_org_2026":11},"alumni_data":{"openai":46},"apple_scholars_aiml":false,"notable_connections":["$1 billion investment in AI through Frontiers of Computing initiative","Information Sciences Institute (ISI) — leading AI research division","Average 2025 MS CS-AI graduate salary: $129,667","LA tech and entertainment AI ecosystem"],"why_notable":"$1 billion AI investment through Frontiers of Computing. ISI houses world-leading AI research division. LA location provides access to tech/entertainment AI ecosystem."},{"rank":17,"name":"UCLA (University of California, Los Angeles)","location":"Los Angeles, CA","key_programs":["MS in Computer Science","Master of Engineering in Artificial Intelligence","MEng in Robotics and Autonomous Systems"],"rankings":{"times_higher_education_cs_2026":{"us_rank":9,"score":90.6}},"alumni_data":{"openai":62,"tech_companies_top_15":394},"apple_scholars_aiml":{"2026":true,"scholars":["Shufan Li (ML Algorithms and Architectures)"]},"notable_connections":["Center for AI and SMART Health","45% of undergraduates participate in research","Amazon top employer","Meta, Google, Amazon, Apple major LA offices"],"why_notable":"#9 in Times Higher Education CS 2026. 62 OpenAI alumni. Located in LA's growing tech ecosystem."},{"rank":18,"name":"University of Maryland, College Park","location":"College Park, MD","key_programs":["MS in Computer Science","MS in Applied Machine Learning","Professional MS in Machine Learning","MS in Electrical and Computer Engineering"],"rankings":{"csrankings_2025_ai":{"us_rank":3},"us_news_grad_cs":16},"apple_scholars_aiml":{"2026":true,"scholars":["Ming Li (Data-Centric AI)"]},"notable_connections":["Strong ties to government (NSF, DARPA, NIH, Army Research Lab)","DC proximity — growing AI policy ecosystem","Climbed in 2026 US News rankings (#9 among public institutions)"],"why_notable":"Underrated: #3 in CSRankings 2025 AI category driven by strong research publication output. Government agency connections (NSF, DARPA, NIH)."},{"rank":19,"name":"University of Pennsylvania","location":"Philadelphia, PA","key_programs":["MSE in Computer and Information Science — AI specialization","Online MSE in Artificial Intelligence","MSE in Data Science"],"rankings":{"times_higher_education_cs_2026":{"us_rank":20,"score":81.3},"mastersinai_org_2026":9},"apple_scholars_aiml":{"2026":true,"scholars":["Fengrui Tian (Computer Vision)"]},"notable_connections":["Wharton-SEAS combination — unique AI-for-business credibility","GRASP Lab (General Robotics, Automation, Sensing and Perception) — oldest robotics labs","Philadelphia/NYC tech corridor proximity","Online MSE-AI program popular for working professionals"],"why_notable":"Wharton-SEAS combination gives unique AI-for-business credibility. GRASP Lab is one of oldest robotics labs in US. Online MSE-AI for working professionals."},{"rank":20,"name":"Duke University","location":"Durham, NC","key_programs":["Master of Engineering in AI for Product Innovation (on-campus and online, 12–24 months)","MS in Electrical and Computer Engineering (ML track)","MS in Statistical Science (Machine Learning focus)"],"rankings":{"mastersinai_org_2025":6},"apple_scholars_aiml":{"2025":true,"scholars":["Srikar Katta (AI for Health)","Ruoyu Xie (Information Retrieval)"]},"notable_connections":["MEng AI for Product Innovation — combines technical AI with business/product development","2,500+ faculty with 6:1 student-faculty ratio","Research Triangle (Raleigh-Durham) — one of fastest-growing tech hubs","IBM, Red Hat, Cisco, SAS major employers"],"why_notable":"Distinctive MEng in AI for Product Innovation combines rigorous technical AI with business and product development. Research Triangle location provides growth opportunity."}],"ranking_summary_table":[{"rank":1,"university":"Carnegie Mellon","the_2026_score":"95.5 (#4)","csrankings_ai_2025":"Top 5","mango_rank":"#1 (6.88%)","openai_alumni":255,"tech_feeder_count":530,"notable":"World's first standalone ML dept"},{"rank":2,"university":"Stanford","the_2026_score":"95.9 (#3)","csrankings_ai_2025":"Top 5","mango_rank":"#4 (3.12%)","openai_alumni":230,"tech_feeder_count":458,"notable":"OpenAI #1 raw count"},{"rank":3,"university":"MIT","the_2026_score":"96.2 (#1)","csrankings_ai_2025":"Top 5","mango_rank":"—","openai_alumni":107,"tech_feeder_count":"—","notable":"QS #1 DS&AI globally"},{"rank":4,"university":"UC Berkeley","the_2026_score":"92.8 (#7)","csrankings_ai_2025":"Top 5","mango_rank":"—","openai_alumni":167,"tech_feeder_count":1041,"notable":"Biggest raw tech feeder"},{"rank":5,"university":"UIUC","the_2026_score":"89.6 (#10)","csrankings_ai_2025":"#2","mango_rank":"—","openai_alumni":"—","tech_feeder_count":598,"notable":"CSRankings AI #2 US"},{"rank":6,"university":"UW Seattle","the_2026_score":"89.1 (#11)","csrankings_ai_2025":"Top 10","mango_rank":"#5 (2.57%)","openai_alumni":42,"tech_feeder_count":511,"notable":"Microsoft partnership 2026"},{"rank":7,"university":"Georgia Tech","the_2026_score":"85.6 (#14)","csrankings_ai_2025":"#4","mango_rank":"—","openai_alumni":"—","tech_feeder_count":436,"notable":"OMSCS $7K, Apple Scholar 2025"},{"rank":8,"university":"Cornell","the_2026_score":"90.7 (#8)","csrankings_ai_2025":"Top 10","mango_rank":"—","openai_alumni":"—","tech_feeder_count":403,"notable":"Apple Scholar 2026"},{"rank":9,"university":"U Michigan","the_2026_score":"84.4 (#17)","csrankings_ai_2025":"Top 10","mango_rank":"—","openai_alumni":"—","tech_feeder_count":561,"notable":"Apple Scholar 2025 (×2)"},{"rank":10,"university":"Princeton","the_2026_score":"96.1 (#2)","csrankings_ai_2025":"Top 10","mango_rank":"—","openai_alumni":34,"tech_feeder_count":"—","notable":"Amodei (Anthropic CEO)"},{"rank":11,"university":"NYU","the_2026_score":"85.4 (#15)","csrankings_ai_2025":"Top 15","mango_rank":"—","openai_alumni":41,"tech_feeder_count":"—","notable":"Yann LeCun (Meta FAIR)"},{"rank":12,"university":"Columbia","the_2026_score":"86.6 (#12)","csrankings_ai_2025":"Top 15","mango_rank":"—","openai_alumni":"—","tech_feeder_count":"—","notable":"Amazon CAIT, NSF ARNI"},{"rank":13,"university":"UCSD","the_2026_score":"83.4 (#19)","csrankings_ai_2025":"#5","mango_rank":"—","openai_alumni":"—","tech_feeder_count":462,"notable":"New School of Computing"},{"rank":14,"university":"UT Austin","the_2026_score":"84.6 (#16)","csrankings_ai_2025":"Top 15","mango_rank":"—","openai_alumni":"—","tech_feeder_count":"—","notable":"$10K online MSAI"},{"rank":15,"university":"Harvard","the_2026_score":"93.8 (#5)","csrankings_ai_2025":"Top 15","mango_rank":"—","openai_alumni":71,"tech_feeder_count":"—","notable":"Faculty at OpenAI/DeepMind"},{"rank":16,"university":"USC","the_2026_score":"—","csrankings_ai_2025":"Top 20","mango_rank":"—","openai_alumni":46,"tech_feeder_count":"—","notable":"$1B AI investment"},{"rank":17,"university":"UCLA","the_2026_score":"90.6 (#9)","csrankings_ai_2025":"Top 15","mango_rank":"—","openai_alumni":62,"tech_feeder_count":394,"notable":"Apple Scholar 2026"},{"rank":18,"university":"UMD","the_2026_score":"Top 30","csrankings_ai_2025":"#3","mango_rank":"—","openai_alumni":"—","tech_feeder_count":"—","notable":"CSRankings AI #3 underrated"},{"rank":19,"university":"UPenn","the_2026_score":"81.3 (#20)","csrankings_ai_2025":"Top 20","mango_rank":"—","openai_alumni":"—","tech_feeder_count":"—","notable":"GRASP Robotics Lab"},{"rank":20,"university":"Duke","the_2026_score":"—","csrankings_ai_2025":"Top 20","mango_rank":"—","openai_alumni":"—","tech_feeder_count":"—","notable":"Apple Scholar 2025 (×2)"}],"ranking_signals":[{"source":"CSRankings.org","year":2025,"measures":"AI research publication output at top conferences (ICML, NeurIPS, CVPR, ACL, ICLR, AAAI)"},{"source":"Times Higher Education CS Rankings","year":2026,"measures":"Overall CS department quality score"},{"source":"QS Data Science & AI Rankings","year":"2025-2026","measures":"Global AI/ML academic ranking"},{"source":"US News Best Graduate CS Programs","year":"2025-2026","measures":"Peer reputation + specialty (AI) ranking"},{"source":"MANGO/ResumeGenius Report","year":"2025-2026","measures":"Alumni share at Microsoft, Apple, NVIDIA, Google, OpenAI"},{"source":"College Transitions Tech Feeder Data","year":2025,"measures":"Raw employee count at top 15 tech firms (Google, Meta, Amazon, Microsoft, Apple, etc.)"},{"source":"OpenAI Alumni Analysis (36kr)","year":2025,"measures":"LinkedIn-sourced, per-university OpenAI headcount"},{"source":"Apple Scholars in AIML","year":"2025-2026","measures":"Merit-based PhD selection signal — best indicator of cutting-edge ML research capability"}]}
+</script>
+<script id="embeddedDetailedData" type="application/json">
+{"metadata":{"title":"Top 20 USA Universities for MS in Computer Science, AI, Machine Learning & Computational Science — COMPREHENSIVE APPLICATION & VISA GUIDE","data_year":"2025-2026","last_updated":"April 2026","note":"All application deadlines, requirements, costs, and visa information verified for 2025-2026 admission cycle. Professor contact info current as of 2026.","methodology":"CSRankings 2025, THEd CS 2026, QS DS&AI 2025/2026, MANGO alumni, College Transitions, OpenAI alumni analysis, Apple Scholars AIML 2025/2026, Official university websites, LinkedIn faculty profiles, The Grad Cafe, Reddit communities"},"universities":[{"rank":1,"name":"Carnegie Mellon University","location":"Pittsburgh, PA","website":"https://csd.cmu.edu","key_programs":["MS in Machine Learning (MSML)","MS in Artificial Intelligence and Innovation (MSAII)","MS in Computer Vision (MSCV)","MS in Robotics (MSR)","MS in Language Technologies (MSLT)","MS in Computational Data Science (MCDS)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":4,"score":95.5},"csrankings_2025_ai":"Top 5","us_news_grad_cs":1,"mango_rank":1,"mango_alumni_share_percent":6.88},"application_timeline":{"application_opens":"September 2025","early_deadline":{"date":"November 19, 2025","time":"3 PM EST","application_fee":"$80"},"final_deadline":{"date":"December 10, 2025","time":"3 PM EST","application_fee":"$100"},"decision_notification":"February-April 2026","admission_cycle":"Fall 2026 only"},"requirements":{"sop_required":true,"sop_details":"1-2 pages, describe research interests and career objectives","letters_of_recommendation":3,"gre":{"required":false,"status":"Strongly recommended, can explain waiver if absent"},"toefl_iBT_minimum":100,"ielts_minimum":"Band equivalent to TOEFL 100","research_background":"Not required but preferred","work_experience":"Not required but valued","gpa_expectation":"3.5+ preferred","cs_background_required":"Yes, strong CS foundation expected"},"professors_and_contacts":[{"name":"Faculty Directory","email":"cs@cmu.edu or firstname@cs.cmu.edu pattern","research_area":"Machine Learning, Language Technologies, Computer Vision, Robotics","source":"https://www.cs.cmu.edu/research/faculty"}],"visa_and_h1b":{"score":"8/10","h1b_filings_fy2025":99,"h1b_approved_fy2025":96,"otp_months":"36 months (12 base + 24 STEM extension)","international_student_percent":"72% of CS grad students nationally","visa_sponsorship":"Strong post-graduation through tech industry partnerships","justification":"CMU filed 99 H1B petitions in FY2025 with 96 approvals. Strong OPT employer network. Limited financial aid for international students. Strong post-graduation sponsorship."},"costs_and_fees":{"tuition_per_semester":"$28,710","annual_tuition":"$57,420","semester_fees":"$503","total_annual_cost":"~$58,426","living_expenses_annual_pittsburgh":"~$20,000","total_2_year_estimate":"$120,000-130,000+","international_financial_aid":"Ineligible"},"reddit_communities":["r/cmu — General CMU discussions","r/gradadmissions — Graduate admissions discussions","thegradcafe.com — CMU CS admission results and decisions"],"alumni_data":{"openai":255,"tech_companies_top_15":530},"notable_features":["World's first standalone Machine Learning Department (founded 2006)","Top feeder to Google (2.62%), Meta (1.36%), Apple (1.15%), NVIDIA","1,400+ researchers","DARPA partnerships, Robotics Institute, Language Technologies Institute"]},{"rank":2,"name":"Stanford University","location":"Stanford, CA","website":"https://cs.stanford.edu","key_programs":["MS in Computer Science (AI specialization)","MS in Statistics (Machine Learning track)","Stanford AI Professional Program (online)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":3,"score":95.9},"csrankings_2025_ai":"Top 5","us_news_grad_cs":1},"application_timeline":{"application_opens":"September 2025","deadline":{"date":"December 1, 2025","note":"CLOSED for 2026 cycle (completed)"},"next_cycle_opens":"September 2026 for Fall 2027","decision_notification":"February-April 2026 (for Fall 2026 cycle)"},"requirements":{"sop_required":true,"sop_details":"Concise, focused essay on motivation, preparation, research interests, career plans","letters_of_recommendation":3,"gre":{"required":false,"status":"NOT required for MS applicants"},"toefl":"Required for non-English native speakers","ielts":"Accepted as alternative","research_background":"Not required","work_experience":"Not required","gpa_expectation":"Competitive 3.5+, average accepted 3.7+","bachelor_degree_flexibility":"Any major accepted"},"professors_and_contacts":[{"name":"Fei-Fei Li","title":"Sequoia Capital Professor, Co-Director Stanford HAI","research_area":"AI, Computer Vision, Human-Centered AI","contact":"ai.stanford.edu/faculty for directory"}],"visa_and_h1b":{"score":"9/10","otp_months":"36 months (12 base + 24 STEM extension)","h1b_sponsorship":"Actively supported by major tech employers","career_services":"Integrating H1B + permanent residency pathways","proximity_advantage":"Silicon Valley provides extensive sponsorship opportunities","justification":"Excellent post-graduation work support and H1B sponsorship. Silicon Valley location with tech giant proximity. High STEM OPT extension support."},"costs_and_fees":{"annual_tuition_and_fees":"~$69,524","in_state_out_of_state":"Both same rate","engineering_surcharge":"May apply (check specific program)","living_expenses_annual_bay_area":"~$25,000-30,000","total_2_year_estimate":"$160,000-180,000+","international_financial_aid":"Limited"},"reddit_communities":["r/Stanford — General Stanford community","r/gradadmissions — Graduate admissions discussions","thegradcafe.com — Acceptance data","Facebook/Discord groups for MS applicants"],"alumni_data":{"openai":230,"anthropic":359,"tech_companies":458},"notable_features":["230 OpenAI alumni (#1 raw count)","589 alumni at OpenAI+Anthropic combined","SAIL lab (Stanford Artificial Intelligence Laboratory)","Co-founders of OpenAI and Anthropic"]},{"rank":3,"name":"Massachusetts Institute of Technology","location":"Cambridge, MA","website":"https://eecs.mit.edu","key_programs":["MS in Electrical Engineering and Computer Science (EECS)","Master of Science in Computation for Design and Optimization","Master of Science in Computational Science and Engineering"],"rankings":{"times_higher_education_cs_2026":{"us_rank":1,"score":96.2},"qs_ds_ai_2025":1,"qs_ds_ai_2026":1,"csrankings_2025_ai":"Top 5"},"application_timeline":{"application_opens":"September 15, 2025","deadline":{"date":"December 1, 2025","application_fee":"$90"},"decision_notification":"February-April 2026"},"requirements":{"sop_required":true,"letters_of_recommendation":3,"gre":{"required":false,"status":"NOT required (phased out)"},"toefl":"Required for international students","ielts":"Accepted","research_background":"Not required","work_experience":"Valued","gpa_expectation":"3.5+ competitive"},"professors_and_contacts":[{"name":"EECS Graduate Program","email":"grad-ap@eecs.mit.edu","phone":"(617) 253-4603","research_groups":"MIT CSAIL, LIDS, Media Lab","website":"eecs.mit.edu/people"}],"visa_and_h1b":{"score":"9/10","h1b_sponsorship":"MIT sponsors H1B for staff positions","otp_months":"36 months (12 base + 24 STEM extension)","international_scholars_office":"ischo.mit.edu — comprehensive support","typical_path":"OPT → H1B sponsorship by employers","justification":"Top-tier visa support with dedicated International Scholars Office. H1B sponsorship established and researched. STEM OPT extension supported."},"costs_and_fees":{"tuition_per_term":"$32,155","terms_per_year":2,"annual_tuition":"~$64,310","living_expenses_annual_boston":"~$20,000-25,000","total_2_year_estimate":"$150,000-180,000+","international_financial_aid":"Limited"},"reddit_communities":["r/MIT — General MIT discussions","r/gradadmissions — Graduate admissions","thegradcafe.com — Specific decision data","MIT-specific Facebook groups and Discord servers"],"alumni_data":{"openai":107},"notable_features":["#1 in QS Data Science & AI 2025 & 2026","#1 in Times Higher Education CS 2026","CSAIL — largest AI/CS research lab in world","93%+ students participate in UROP research"]},{"rank":4,"name":"University of California, Berkeley","location":"Berkeley, CA","website":"https://eecs.berkeley.edu","key_programs":["MS in Electrical Engineering and Computer Sciences (EECS)","MS in Computer Science (AI/ML track)","Master of Engineering (Robotics)","Professional ML Certificate (online)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":7,"score":92.8},"csrankings_2025_ai":"Top 5","us_news_grad_cs":1},"application_timeline":{"application_opens":"September 2025","deadline":{"date":"December 1, 2025"},"decision_notification":"April 2026","next_cycle":"September 2026 for Fall 2027","admission_cycle":"Fall only"},"requirements":{"sop_required":true,"letters_of_recommendation":3,"gre":{"required":false,"status":"NOT required as of Fall 2026"},"toefl_iBT_minimum":90,"ielts_minimum":7,"gpa_minimum":3,"gpa_competitive":"3.5+","research_background":"Not required","work_experience":"Valued"},"professors_and_contacts":[{"name":"EECS Faculty Directory","email":"eecsoffice@eecs.berkeley.edu","research_groups":"Vision Lab (efros@eecs.berkeley.edu), AI/ML labs","website":"eecs.berkeley.edu/people"}],"visa_and_h1b":{"score":"8/10","international_student_percent":"40%+ of CS grad students","otp_months":"36 months total","bay_area_ecosystem":"Extensive sponsorship through tech giant proximity","h1b_pathway":"Well-established but increasingly competitive","justification":"Strong international student population. STEM OPT available. Bay Area provides sponsorship opportunities but increasing competition."},"costs_and_fees":{"in_state_tuition":"Varies by program","nonresident_supplemental_tuition":"$15,102+","personal_expenses_annual":"$28,000+","total_2_year_estimate":"$120,000-160,000+","financial_aid_contact":"financialaid.berkeley.edu"},"reddit_communities":["r/Berkeley — General Berkeley discussions","r/gradadmissions — Graduate admissions","thegradcafe.com — CS admission data","Berkeley-specific Discord/Facebook groups"],"alumni_data":{"openai":167,"tech_companies_top_15":1041},"notable_features":["Largest feeder to Big Tech: 1,041 alumni at top 15 tech firms","BAIR lab (Berkeley AI Research)","John Schulman (OpenAI co-founder, ChatGPT lead architect)","PyTorch and RL algorithms originated here"]},{"rank":5,"name":"University of Illinois at Urbana-Champaign","location":"Champaign-Urbana, IL","website":"https://siebelschool.illinois.edu","key_programs":["MS in Computer Science (AI/ML specialization, thesis-based)","MCS (Professional Master's in CS) — online and on-campus","MEng in Autonomy and Robotics","MS in Statistics (Data Science track)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":10,"score":89.6},"csrankings_2025_ai_us_rank":2,"us_news_grad_cs":5},"application_timeline":{"application_opens":"October 2025","deadline":{"date":"May 1, 2026","note":"Later deadline than most schools"},"decision_notification":"Rolling","application_fee":"$90"},"requirements":{"sop_required":true,"letters_of_recommendation":3,"gre":{"required":false,"status":"NOT required for 2026 cycle"},"toefl_ielts":"Required for international students","gpa_competitive":"3.0+ competitive","research_background":"Not required","work_experience":"Not required"},"professors_and_contacts":[{"name":"Graduate Director","email":"slazebni@illinois.edu","associate_director":"colleenl@illinois.edu","website":"siebelschool.illinois.edu/about/people"}],"visa_and_h1b":{"score":"7/10","international_student_support":"Good","otp_months":"36 months available","h1b_sponsorship":"Moderate through hiring employers","tech_connections":"Strong relationships with Midwest tech companies","limitation":"More limited Bay Area/NYC connections vs. top-tier schools","justification":"Good international support but smaller tech ecosystem access. Midwest-focused rather than coastal."},"costs_and_fees":{"in_state_tuition_annual":"$15,000-17,000","out_of_state_tuition_annual":"$32,000-35,000","living_expenses_annual":"$15,000-18,000","total_out_of_state_2_year":"$95,000-120,000","note":"More affordable option vs. coastal schools"},"reddit_communities":["r/UIUC — General UIUC discussions","r/gradadmissions — Graduate admissions","thegradcafe.com — CS-specific data","UIUC engineering Discord servers"],"alumni_data":{"tech_companies_top_15":598},"notable_features":["#2 in CSRankings 2025 AI category (US rank)","120+ corporations in on-campus Research Park (Google, Microsoft, Amazon)","Siebel School of Computing with specialized AI pathways","91% of CS grads land next destination within 6 months"]},{"rank":6,"name":"University of Washington","location":"Seattle, WA","website":"https://cs.washington.edu","key_programs":["MS in Computer Science (Paul G. Allen School)","Professional Master's Program (PMP) in CS","MS in Data Science","Online MS in AI and Machine Learning for Engineering"],"rankings":{"times_higher_education_cs_2026":{"us_rank":11,"score":89.1},"mango_rank":5,"mango_alumni_share_percent":2.57},"application_timeline":{"application_opens":"October 2025","application_period":"Rolling window","deadline":{"date":"March 2, 2026"},"decision_notification":"Rolling through March"},"requirements":{"sop_required":true,"letters_of_recommendation":3,"gre":{"required":false},"toefl_iBT_minimum":92,"ielts_minimum":7,"duolingo_minimum":125,"gpa_competitive":"3.5+","research_background":"Not required","work_experience":"Not required"},"professors_and_contacts":[{"name":"Paul G. Allen School of CS","email":"grad-admissions@cs.washington.edu","website":"cs.washington.edu"}],"visa_and_h1b":{"score":"8/10","international_enrollment_percent":"~40% of grad students","otp_months":"36 months available","tech_hub_advantage":"Seattle (Amazon, Microsoft) provides sponsorship","h1b_placement":"Good H1B placement rates","pacific_northwest":"Strong Pacific Northwest employer relationships","justification":"High international enrollment signals strong visa support. Tech hub advantage with Amazon/Microsoft."},"costs_and_fees":{"annual_tuition":"$43,209","total_cost_of_attendance_annual":"$73,899","living_expenses_included":"Yes, in above estimate","total_2_year":"~$147,000-150,000","note":"More affordable than California coastal programs"},"reddit_communities":["r/udub — University of Washington general","r/gradadmissions — Graduate admissions","r/cscareerquestions — General CS career discussions","UW Engineering Discord"],"alumni_data":{"openai":42,"tech_companies_top_15":511},"notable_features":["Microsoft partnership expansion (February 2026)","Ai2 (Allen Institute for AI) partnership (August 2025)","NSF/NVIDIA partnership","18 faculty with concurrent roles at Google, Meta, Microsoft"]},{"rank":7,"name":"Georgia Institute of Technology","location":"Atlanta, GA","website":"https://cc.gatech.edu","key_programs":["MS in Computer Science (MSCS) — 11 specializations including ML","MS in Machine Learning (standalone MSML)","Online MS in CS (OMSCS) — ~$7,000 total","MS in Robotics"],"rankings":{"times_higher_education_cs_2026":{"us_rank":14,"score":85.6},"csrankings_2025_ai_us_rank":4,"us_news_grad_ai_specialty":5},"application_timeline":{"application_opens":"October 2025","deadline":{"date":"February 1, 2026"},"decision_notification":"February-March 2026","application_fee":"$85"},"requirements":{"sop_required":true,"letters_of_recommendation":3,"gre":{"required":true,"status":"STRICTLY REQUIRED — cannot be waived"},"gre_expectations":{"verbal":"153+","quantitative":"155+","analytical":"3.0+"},"gre_average_admitted":"Higher scores preferred","toefl_iBT_minimum":"100 (older scale), 5.0 (new scale)","ielts_minimums":{"overall":7.5,"reading":6.5,"listening":6.5,"speaking":6.5,"writing":5.5},"gpa_desirable":"3.0+, most higher","research_background":"Not required","work_experience":"Not required"},"professors_and_contacts":[{"name":"School of Computational Science & Engineering","email":"gradadmissions@cc.gatech.edu","website":"cc.gatech.edu","ranking_note":"Ranked #1 in AI (2026 US News)"}],"visa_and_h1b":{"score":"8/10","international_student_percent":"30%+","otp_months":"36 months","atlanta_tech_ecosystem":"Growing (startup scene expanding)","h1b_sponsorship":"Available through employers","career_services":"Good visa guidance support","justification":"Growing Atlanta tech ecosystem. Increasing startup scene. Good career services but less established than coastal schools."},"costs_and_fees":{"in_state_annual":"$15,962","out_of_state_annual":"$32,144","living_expenses_annual_atlanta":"$15,000-20,000","total_out_of_state_2_year":"$95,000-120,000","note":"One of more affordable top-tier options"},"reddit_communities":["r/gatech — General Georgia Tech","r/gradadmissions — Graduate admissions","thegradcafe.com — CS admission data","GaTech engineering communities"],"alumni_data":{"tech_companies_top_15":436},"notable_features":["OMSCS ranked #1 for online CS programs (~$7,000 total)","NSF $20M award for Nexus supercomputer (2024)","50% of undergraduates collaborate on research","GRE strictly required (unique among top 20)"]},{"rank":8,"name":"Cornell University","location":"Ithaca, NY (+ Cornell Tech, New York City)","website":"https://cs.cornell.edu","key_programs":["Master of Engineering (MEng) in Computer Science","MS in Computer Science (research-focused)","MS in Information Science (AI specialization)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":8,"score":90.7},"us_news_grad_cs":7},"application_timeline":{"application_opens":"October 2025","deadline":{"date":"January 15, 2026"},"decision_notification":"February-April 2026","application_fee":"$85"},"requirements":{"sop_required":true,"sop_details":"Essay on thesis area relevance to career","letters_of_recommendation":3,"lor_details":"At least one addressing expository skills/classroom ability","gre":{"required":false,"status":"NOT explicitly required"},"toefl_minimums":{"speaking":28,"writing":24,"reading":24,"listening":24},"ielts":"Accepted; equivalent standards apply","cs_degree":"Expected but related fields with CS fundamentals considered","research_background":"Highly recommended (undergrad TA/research experience)","gpa_competitive":"3.5+"},"professors_and_contacts":[{"name":"CS Graduate Admissions","email":"cs-admissions@cornell.edu","website":"cs.cornell.edu/people"}],"visa_and_h1b":{"score":"7/10","international_support":"Supported but limited","otp_months":"36 months available","location_limitation":"Ithaca location limits local employer sponsorship","relocation_necessary":"Post-graduation relocation to tech hubs necessary","career_services":"Good but smaller local tech ecosystem","justification":"International support available but Ithaca location reduces local sponsorship opportunities."},"costs_and_fees":{"graduate_tuition_annual":"$35,000-40,000","total_cost_of_attendance":"$100,000+ for some students","living_expenses_annual_ithaca":"$18,000-22,000","total_2_year":"$106,000-130,000+","note":"One of higher cost programs"},"reddit_communities":["r/Cornell — General Cornell discussions","r/gradadmissions — Graduate admissions","thegradcafe.com — CS-specific data","Cornell engineering/tech communities"],"alumni_data":{"tech_companies_top_15":403},"notable_features":["Only Ivy League with full engineering rigor comparable to MIT/Stanford","Cornell Tech campus in NYC for industry proximity","Leads in AI ethics and responsible AI research","Google is top employer"]},{"rank":9,"name":"University of Michigan, Ann Arbor","location":"Ann Arbor, MI","website":"https://cse.engin.umich.edu","key_programs":["MS in Computer Science and Engineering (CSE)","MS in Electrical and Computer Engineering (Data Science/ML track)","MS in Robotics","Master of Engineering in ECE (Data Science/ML)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":17,"score":84.4}},"application_timeline":{"application_opens":"Mid-September 2025","application_type":"Rolling","decision_notification":"February-April 2026"},"requirements":{"sop_required":true,"letters_of_recommendation":3,"gre":{"required":false,"status":"NOT explicitly required (status check recommended)"},"toefl_ielts":"Required for international students","gpa_minimum":"3.5+ preferred","background":"CS/Engineering/Physics/Math degree expected","research_background":"Not required","work_experience":"Not required"},"professors_and_contacts":[{"name":"CSE Graduate Info","email":"gradinfo@cse.engin.umich.edu","website":"cse.engin.umich.edu/people"}],"visa_and_h1b":{"score":"7/10","international_student_percent":"~30% of grad students","otp_months":"36 months","regional_ecosystem":"Detroit/Michigan tech ecosystem growing but limited","h1b_sponsorship":"Available through employers","location_challenge":"Midwest location limits local sponsorship","justification":"Good visa support but limited local tech ecosystem. Need to relocate for sponsorship."},"costs_and_fees":{"in_state_annual":"$20,000-22,000","out_of_state_annual":"$45,000-50,000","living_expenses_annual":"$15,000-20,000","total_out_of_state_2_year":"$120,000-140,000","in_state_advantage":"Significant for in-state students"},"reddit_communities":["r/uofm — General University of Michigan","r/gradadmissions — Graduate admissions","thegradcafe.com — CS data","Engineering communities"],"alumni_data":{"tech_companies_top_15":561},"notable_features":["50+ AI faculty","Strong automotive AI partnerships (Ford, Toyota Research Institute)","MIDAS Institute coordinates AI/ML funding","1,300+ students participate in research programs annually"]},{"rank":10,"name":"Princeton University","location":"Princeton, NJ","website":"https://cs.princeton.edu","key_programs":["MS in Computer Science (research-focused, leading to PhD)","MS in Electrical and Computer Engineering","Certificate in Statistics and Machine Learning (CSML)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":2,"score":96.1},"ai_research_per_student":"2.598 publications (highest in US)"},"application_timeline":{"application_opens":"September 2025","deadline":{"date":"December 15, 2025","note":"CLOSED for 2026 cycle"},"next_cycle":"September 2026 for Fall 2027","application_fee":"$75"},"requirements":{"sop_required":true,"supplemental_essay":"Teaching experience (250 words max)","letters_of_recommendation":3,"gre":{"required":false},"toefl":"28+ speaking minimum","ielts":"Band 8 speaking equivalent","research_interest_selection":"2 areas must be selected","gpa_competitive":"3.5+"},"professors_and_contacts":[{"name":"Graduate Admissions","email":"gradinfo@cs.princeton.edu","website":"cs.princeton.edu/grad"}],"visa_and_h1b":{"score":"8/10","international_support":"Limited but strong","otp_months":"36 months","location_advantage":"Proximity to NYC/NJ tech hubs","h1b_sponsorship":"Available","career_services":"Strong alumni network","justification":"NYC/NJ proximity provides sponsorship access. Strong career services and alumni network."},"costs_and_fees":{"graduate_tuition_annual":"$35,000+","living_expenses_annual":"$20,000-25,000","total_2_year":"$110,000-130,000+","international_aid":"Limited for international students"},"reddit_communities":["r/Princeton — General Princeton discussions","r/gradadmissions — Graduate admissions","thegradcafe.com — Specific decision data","Princeton tech/engineering communities"],"alumni_data":{"openai":34},"notable_features":["Dario Amodei (Anthropic CEO, Princeton PhD '11)","Fei-Fei Li (Princeton BA '99, Stanford AI professor)","Six Princetonians on Time's 100 Most Influential AI People","CSML center — most rigorous ML theory program globally"]},{"rank":11,"name":"New York University","location":"New York City, NY","website":"https://cs.nyu.edu","key_programs":["MS in Computer Science (Courant Institute) — AI/ML/Vision specializations","MS in Data Science (Center for Data Science)","MS in Mechatronics and Robotics","MS in Emerging Technologies (online)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":15,"score":85.4},"mastersinai_org_2026":16},"application_timeline":{"application_opens":"October 2025","priority_deadline":{"date":"January 15, 2026"},"final_deadline":{"date":"February 15, 2026"},"decision_notification":"Rolling through March"},"requirements":{"sop_required":true,"sop_length":"250-1,000 words on motivation, goals","letters_of_recommendation":3,"lor_preference":"Academic or professional","gre":{"required":false,"status":"NOT required for 2026 cycle"},"toefl_iBT_minimum":100,"toefl_paper":"620+","toefl_computer":"260+","ielts_accepted":true,"pte_academic":"Accepted","duolingo":"Accepted","gpa_competitive":"3.5+","research_background":"Not required","work_experience":"Valued"},"professors_and_contacts":[{"name":"Courant Institute / CS Department","email":"cs-admissions@nyu.edu","website":"cs.nyu.edu/people","notable":"Yann LeCun (Meta Chief AI Scientist) is professor here"}],"visa_and_h1b":{"score":"8/10","location_advantage":"NYC excellent for visa sponsorship","otp_months":"36 months","employer_network":"Extensive in NYC tech","h1b_sponsorship":"Strong","career_services_integration":"Good visa guidance","justification":"NYC location provides extensive sponsorship network. Major tech hub with strong hiring."},"costs_and_fees":{"per_credit":"$2,700-2,800","30_credit_program_tuition":"$64,800","total_with_fees":"$65,000-81,000+ per year","living_expenses_annual_nyc":"$25,000-30,000","total_2_year":"$155,000-180,000+","note":"High cost but strong earning potential post-grad"},"reddit_communities":["r/NYU — General NYU discussions","r/gradadmissions — Graduate admissions","thegradcafe.com — CS-specific data","NYC tech communities on Reddit/Discord"],"alumni_data":{"openai":41},"notable_features":["Courant Institute — world's most respected math/CS institution","Yann LeCun (Meta Chief AI Scientist, won Queen Elizabeth Prize 2025)","Saining Xie (PAMI Young Researcher Award CVPR 2025)","Member of Empire AI consortium","Located in NYC with 2,000+ AI startups"]},{"rank":12,"name":"Columbia University","location":"New York City, NY","website":"https://cs.columbia.edu","key_programs":["MS in Computer Science — ML, NLP, Vision/Robotics tracks","MS in Data Science","Online MS in CS"],"rankings":{"times_higher_education_cs_2026":{"us_rank":12,"score":86.6},"mastersinai_org_2026":8},"application_timeline":{"application_opens":"September 2025","priority_deadline":{"date":"January 15, 2026"},"rolling_admissions_after":"Priority deadline","decision_notification":"Rolling through May"},"requirements":{"sop_required":true,"sop_length":"250-1,000 words on motivation, goals, program fit","letters_of_recommendation":3,"lor_type":"Academic or professional","gre":{"required":false,"status":"NOT required for 2026 cycle"},"toefl":"Required for non-English native speakers","ielts":"Accepted","pte_academic":"Accepted","duolingo":"Accepted","gpa_competitive":"3.5+, highly selective","cs_background":"Expected; or 4 CS courses + 2 math courses minimum","research_background":"Not required","work_experience":"Valued"},"professors_and_contacts":[{"name":"Richard Zemel","email":"zemel@cs.columbia.edu","research_area":"ML, AI"},{"name":"Daniel J. Hsu","email":"djhsu@cs.columbia.edu","research_area":"Algorithmic statistics, ML"},{"name":"Elias Bareinboim","email":"eb@cs.columbia.edu","title":"Causal AI Lab Director","research_area":"Causal AI"}],"visa_and_h1b":{"score":"9/10","location_advantage":"NYC provides extensive sponsorship options","otp_months":"36 months","h1b_pipeline":"Excellent","tech_hub_access":"Multiple hubs accessible (NYC, SF, Boston)","career_services":"Strong visa focus","justification":"NYC location + excellent career services = top-tier visa support. Multiple tech hub access."},"costs_and_fees":{"tuition_per_credit":"$2,700","30_credit_program":"$64,800","additional_fees":{"international_fee":"$160/semester","health_insurance":"$5,367/year"},"total_per_year":"$65,000-70,000+","living_expenses_annual_nyc":"$25,000-35,000","total_2_year":"$160,000-190,000+","note":"One of highest cost programs but excellent ROI"},"reddit_communities":["r/columbia — General Columbia discussions","r/gradadmissions — Graduate admissions","thegradcafe.com — Columbia CS data","NYC tech/finance communities"],"notable_features":["NSF-funded AI Research Institute ARNI","Center of AI Technology (CAIT) — joint Amazon, 70+ faculty","PhD students at Google (Cortex agentic system, Summer 2025)","Microsoft Research AI Frontiers fellowships (2025)"]},{"rank":13,"name":"University of California, San Diego","location":"San Diego, CA","website":"https://cse.ucsd.edu","key_programs":["MS in Computer Science and Engineering (AI/ML track)","MS in ECE — Machine Learning and Data Science","MS in ECE — Intelligent Systems, Robotics and Control"],"rankings":{"times_higher_education_cs_2026":{"us_rank":19,"score":83.4},"csrankings_2025_ai_us_rank":5,"us_news_ai_specialty":10,"mastersinai_org_2025":12},"application_timeline":{"application_opens":"September 3, 2025","deadline":{"date":"December 17, 2025","time":"11:59 PM PST"},"decision_notification":"February-April 2026","admission_note":"Fall quarter only (no Spring admission)"},"requirements":{"sop_required":true,"letters_of_recommendation":3,"gre":{"required":false,"status":"NOT required for Fall 2026"},"toefl_ielts_duolingo":"Required for international students","resume_cv":"Required","gpa_minimum":"3.0 (B average)","gpa_competitive":"3.5+","research_background":"Not required","work_experience":"Not required"},"professors_and_contacts":[{"name":"CSE Graduate Info","email":"gradinfo@cse.ucsd.edu","website":"cse.ucsd.edu/people"}],"visa_and_h1b":{"score":"8/10","regional_ecosystem":"San Diego growing","otp_months":"36 months","proximity_advantage":"Access to Bay Area and LA tech hubs","h1b_sponsorship":"Good through local employers","international_services":"Robust support","justification":"Growing San Diego ecosystem + proximity to major hubs. Good H1B sponsorship."},"costs_and_fees":{"in_state_annual":"$17,000-20,000","out_of_state_annual":"$45,000-48,000","living_expenses_annual":"$18,000-22,000","total_out_of_state_2_year":"$125,000-140,000","note":"Moderate to high cost; in-state favorable"},"reddit_communities":["r/UCSD — General UCSD discussions","r/gradadmissions — Graduate admissions","thegradcafe.com — CS admission data","San Diego tech communities"],"alumni_data":{"tech_companies_top_15":462},"notable_features":["CSRankings 2025 AI: #5 US rank","New School of Computing (approved 2024, launching 2025)","Jacobs School of Engineering — $329M research expenditures","Max MS AI graduate earnings exceed $300K"]},{"rank":14,"name":"University of Texas at Austin","location":"Austin, TX","website":"https://cs.utexas.edu","key_programs":["MS in Computer Science (on-campus, AI/ML concentration)","Online MS in Artificial Intelligence (OMSAI) — ~$10,000 total via edX","Graduate Certificate in AI and Machine Learning (CAIML)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":16,"score":84.6},"us_news_grad_cs":7,"mastersinai_org_2026":15},"application_timeline":{"application_opens":"October 2025","deadline":{"date":"December 15, 2025","time":"11:59 PM CST"},"supplemental_materials":"By December 15 (LOR by Dec 20)","decision_notification":"Rolling (February-April)"},"requirements":{"sop_required":true,"letters_of_recommendation":3,"lor_minimum":"At least 1 academic","gre":{"required":false,"status":"OPTIONAL (not required)"},"toefl":"Required for international students","ielts":"Accepted","gpa_minimum":"3.0+","gpa_competitive":"3.5+","research_background":"Not required","work_experience":"Not required","cs_coursework":"Recommended background"},"professors_and_contacts":[{"name":"Notable AI Researchers","researchers":[{"name":"klivans","email":"klivans@cs.utexas.edu"},{"name":"joydeepb","email":"joydeepb@cs.utexas.edu"},{"name":"swarat","email":"swarat@cs.utexas.edu"}],"email_general":"gradinfo@cs.utexas.edu","ai_lab":"ai-lab.utexas.edu","website":"cs.utexas.edu/people"}],"visa_and_h1b":{"score":"7/10","ecosystem_growth":"Austin = #3 US tech hub (Tesla, Oracle, Apple, Google, Dell)","otp_months":"36 months","company_relocations":"200+ tech companies relocated major offices","hiring_pipeline":"Exceptional proximity-based opportunities","establishment_level":"Less established than coastal schools but improving","justification":"Austin tech boom creates hiring opportunities. Less established than coastal but improving rapidly."},"costs_and_fees":{"in_state_annual":"$10,000-12,000","out_of_state_annual":"$40,000-42,000","living_expenses_annual":"$12,000-15,000","total_out_of_state_2_year":"$104,000-114,000","note":"One of more affordable top-tier programs"},"reddit_communities":["r/UTAustin — General UT Austin discussions","r/gradadmissions — Graduate admissions","thegradcafe.com — UT Austin CS data","Austin tech communities"],"notable_features":["45+ AI faculty","Austin = #3 US tech hub (#1 fastest growing)","One of first fully online MSAI programs via edX (~$10K)","200+ major tech companies with offices in Austin"]},{"rank":15,"name":"Harvard University","location":"Cambridge, MA","website":"https://seas.harvard.edu","key_programs":["SM/MS in Computer Science (SEAS)","Master's in Computational Science and Engineering (CSE)","Master's in Data Science (joint SEAS/FAS)"],"rankings":{"times_higher_education_cs_2026":{"us_rank":5,"score":93.8}},"application_timeline":{"application_opens":"September 2025","deadline":{"date":"December 1, 2025","time":"5 PM EST","note":"CLOSED for 2026"},"next_cycle":"September 2026 for Fall 2027","admission_type":"NO rolling admissions - single deadline annually"},"requirements":{"sop_required":true,"letters_of_recommendation":3,"gre":{"required":false},"toefl_iBT_minimum":80,"ielts_minimum":6.5,"gpa_competitive":"3.5+","prerequisites":"Calculus, linear algebra, differential equations, probability, statistics, programming fluency, basic CS concepts"},"professors_and_contacts":[{"name":"Graduate Admissions","email":"gradadmissions@harvard.edu","websites":["seas.harvard.edu","gsas.harvard.edu"],"notable_faculty":["Boaz Barak (OpenAI, part-time Harvard)","Fernanda Viégas & Martin Wattenberg (Google DeepMind)","Hima Lakkaraju (Google Research)","Ariel Procaccia (Meta Superintelligence)"]}],"visa_and_h1b":{"score":"9/10","visa_support_reputation":"Excellent","otp_months":"36 months","h1b_sponsorship":"All doors open with Harvard brand","regional_ecosystem":"Boston/Cambridge tech ecosystem strong","career_services":"Top-tier","justification":"Exceptional visa support and reputation. Harvard brand opens all H1B doors. Top career services."},"costs_and_fees":{"annual_tuition":"$63,624","program_length_months":18,"18_month_total_cost":"$173,651","living_expenses_annual":"$20,000-25,000","health_insurance_included":true,"total_2_year_equivalent":"$155,000-175,000+","international_aid":"Limited"},"reddit_communities":["r/Harvard — General Harvard discussions","r/gradadmissions — Graduate admissions","thegradcafe.com — Harvard data science/CS discussions","Harvard/MIT communities"],"alumni_data":{"openai":71},"notable_features":["#5 Times Higher Education CS 2026","Faculty concurrent roles at OpenAI, Google DeepMind, Meta, Microsoft","CS50 official sponsors: Meta, Amazon, Google, Microsoft, OpenAI, GitHub","Multiple faculty leadership at top AI companies"]},{"rank":16,"name":"University of Southern California","location":"Los Angeles, CA","website":"https://viterbigradadmission.usc.edu","key_programs":["MS in Computer Science — AI specialization","MS in ECE — Machine Learning and Data Science","MS in Applied Data Science (online)"],"rankings":{"mastersinai_org_2026":11},"application_timeline":{"spring_2026_deadline":{"date":"September 1, 2025","time":"11:59 PM PT"},"fall_2026_scholarship_deadline":"December 15, 2025","fall_2026_final_deadline":{"date":"January 15, 2026"},"decision_notification":"Rolling"},"requirements":{"sop_required":true,"sop_type":"Personal statement","letters_of_recommendation":3,"gre":{"required":false,"status":"NOT required for 2026"},"toefl_iBT_minimum":90,"ielts_minimum":6.5,"pte_minimum":61,"gpa_competitive":"3.5+","research_background":"Not required","work_experience":"Valued","application_fee":{"fall":"$105","spring":"$90"}},"professors_and_contacts":[{"name":"Viterbi School Graduate Admissions","email":"viterbi-admissions@usc.edu","website":"viterbigradadmission.usc.edu"}],"visa_and_h1b":{"score":"8/10","la_ecosystem":"Substantial tech ecosystem","otp_months":"36 months","sponsorship_network":"Strong employer sponsorship","h1b_pathway":"Well-established","industry_connections":"Entertainment, tech, aerospace strong","justification":"LA tech ecosystem + strong employer connections. Entertainment/tech/aerospace industries provide sponsorship."},"costs_and_fees":{"per_unit_3_unit":"$2,665","per_unit_4_unit":"$10,660","annual_tuition":"$42,640","total_cost_of_attendance_annual":"$70,684","living_expenses_included":"Yes","total_2_year":"$140,000-145,000","note":"Moderate cost for California school"},"reddit_communities":["r/USC — General USC discussions","r/gradadmissions — Graduate admissions","thegradcafe.com — USC CS data","LA tech communities"],"alumni_data":{"openai":46},"notable_features":["$1 billion investment in AI through Frontiers of Computing","Information Sciences Institute (ISI) — world-leading AI research","Average 2025 MS CS-AI graduate salary: $129,667","LA tech and entertainment AI ecosystem"]},{"rank":17,"name":"UCLA (University of California, Los Angeles)","location":"Los Angeles, CA","website":"https://cs.ucla.edu","key_programs":["MS in Computer Science","Master of Engineering in Artificial Intelligence","MEng in Robotics and Autonomous Systems"],"rankings":{"times_higher_education_cs_2026":{"us_rank":9,"score":90.6}},"application_timeline":{"application_opens":"Mid-September 2025","deadline":{"date":"December 15, 2025","time":"11:59 PM PT"},"decision_notification":"April 2026","admission_cycle":"Fall quarter only"},"requirements":{"sop_required":true,"sop_length":"500 word limit","sop_type":"Personal statement","letters_of_recommendation":3,"gre":{"required":false,"status":"NOT required (optional doesn't increase weight)"},"toefl_computer_based_minimum":87,"toefl_paper_based":560,"ielts_minimum":7,"gpa_minimum":"3.0","gpa_competitive":"3.5+","research_background":"Not required","work_experience":"Valued","official_transcripts":"Required"},"professors_and_contacts":[{"name":"Aditya Grover","email":"adityag@cs.ucla.edu","research_area":"ML, LLMs"},{"name":"Bolei Zhou","title":"Associate Professor","research_area":"AI, autonomous systems"},{"name":"Faculty Joining July 2026","new_hires":["Ying Sheng (LLMs, ML systems)","Yangruibo Ding (LLMs, SE)"]},{"email_general":"csinfo@cs.ucla.edu","website":"cs.ucla.edu/people"}],"visa_and_h1b":{"score":"8/10","la_ecosystem":"Growing tech ecosystem","otp_months":"36 months","proximity_advantage":"Bay Area access","h1b_sponsorship":"Available through employers","international_services":"Good support","justification":"LA tech ecosystem + Bay Area proximity. Good sponsorship through employers."},"costs_and_fees":{"in_state_annual":"$15,000-18,000","out_of_state_annual":"$45,000-48,000","living_expenses_annual":"$18,000-22,000","total_out_of_state_2_year":"$125,000-140,000","in_state_favorable":true},"reddit_communities":["r/ucla — General UCLA discussions","r/gradadmissions — Graduate admissions","thegradcafe.com — UCLA CS data","LA engineering communities"],"alumni_data":{"openai":62,"tech_companies_top_15":394},"notable_features":["Center for AI and SMART Health","45% of undergraduates participate in research","Amazon top employer","Meta, Google, Amazon, Apple major LA offices"]},{"rank":18,"name":"University of Maryland, College Park","location":"College Park, MD","website":"https://cs.umd.edu","key_programs":["MS in Computer Science","MS in Applied Machine Learning","Professional MS in Machine Learning","MS in Electrical and Computer Engineering"],"rankings":{"csrankings_2025_ai_us_rank":3,"us_news_grad_cs":16},"application_timeline":{"application_opens":"September 2025","deadline":{"date":"December 5, 2025"},"decision_notification":"Mid-February to late March 2026","application_fee":"$75"},"requirements":{"sop_required":true,"letters_of_recommendation":3,"gre":{"required":false,"status":"OPTIONAL (can enhance application)"},"toefl":"Required for international students","ielts":"Accepted","gpa_minimum":"3.5+ preferred","research_background":"Not required","work_experience":"Not required"},"professors_and_contacts":[{"name":"Graduate Program","email":"gradinfo@cs.umd.edu","website":"cs.umd.edu/grad"}],"visa_and_h1b":{"score":"7/10","dc_ecosystem":"Growing","otp_months":"36 months","h1b_sponsorship":"Moderate","federal_connections":"Unique government agency connections (NSF, DARPA, NIH, Army Research Lab)","startup_growth":"Growing startup scene","justification":"DC growing ecosystem + unique government agency connections. Federal opportunities unique advantage."},"costs_and_fees":{"in_state_annual":"$12,000-15,000","out_of_state_annual":"$35,000-40,000","living_expenses_annual":"$12,000-15,000","total_out_of_state_2_year":"$94,000-110,000","note":"Affordable option for top program"},"reddit_communities":["r/UMD — General UMD discussions","r/gradadmissions — Graduate admissions","thegradcafe.com — UMD CS data","DC/Maryland tech communities"],"notable_features":["CSRankings 2025 AI: #3 US (underrated by reputation)","Strong research publication output at top AI conferences","Government agency partnerships (NSF, DARPA, NIH)","Climbed in 2026 US News rankings"]},{"rank":19,"name":"University of Pennsylvania","location":"Philadelphia, PA","website":"https://cis.upenn.edu","key_programs":["MSE in Computer and Information Science — AI specialization","Online MSE in Artificial Intelligence","MSE in Data Science"],"rankings":{"times_higher_education_cs_2026":{"us_rank":20,"score":81.3},"mastersinai_org_2026":9},"application_timeline":{"application_opens":"September 15, 2025","early_deadline":{"date":"November 1, 2025"},"regular_deadline":{"date":"February 1, 2026"},"decision_notification":"Rolling (January-April)"},"requirements":{"sop_required":true,"sop_type":"Personal statement","letters_of_recommendation":2,"gre":{"required":false,"status":"OPTIONAL (not required)"},"toefl":"Required for international students","ielts":"Accepted","duolingo":"Accepted","passport_copy":"Required for international students","resume":"Required","gpa_competitive":"3.5+","research_background":"Not required","work_experience":"Valued"},"professors_and_contacts":[{"name":"Notable AI Researchers","researchers":[{"name":"Jean Hugues","email":"jean@cis.upenn.edu"},{"name":"Jing Shi","email":"jshi@cis.upenn.edu"},{"name":"ahae","email":"ahae@cis.upenn.edu"},{"name":"mhnaik","email":"mhnaik@cis.upenn.edu"}],"email_general":"cis-gradinfo@upenn.edu","grasp_lab":"GRASP Lab (General Robotics, Automation, Sensing, Perception)","ml_research":"Penn Research in Machine Learning (priml.upenn.edu)","website":"cis.upenn.edu/people"}],"visa_and_h1b":{"score":"8/10","philadelphia_ecosystem":"Growing tech ecosystem","otp_months":"36 months","proximity_advantage":"NYC/Boston proximity for additional opportunities","h1b_sponsorship":"Available","career_services":"Good integration with visa focus","justification":"Philadelphia growth + East Coast proximity to multiple hubs. Good visa support."},"costs_and_fees":{"annual_tuition":"$31,000-35,000","living_expenses_annual":"$18,000-22,000","total_2_year":"$98,000-114,000+","note":"Moderate cost; urban location advantage"},"reddit_communities":["r/UPenn — General UPenn discussions","r/gradadmissions — Graduate admissions","thegradcafe.com — UPenn CS data","Philadelphia tech communities"],"notable_features":["Wharton-SEAS combination — unique AI-for-business credibility","GRASP Lab — one of oldest robotics labs in US","Philadelphia/NYC tech corridor proximity","Online MSE-AI for working professionals"]},{"rank":20,"name":"Duke University","location":"Durham, NC","website":"https://cs.duke.edu","key_programs":["Master of Engineering in AI for Product Innovation (on-campus and online, 12–24 months)","MS in Electrical and Computer Engineering (ML track)","MS in Statistical Science (Machine Learning focus)"],"rankings":{"mastersinai_org_2025":6},"application_timeline":{"application_opens":"August 2025","priority_deadline":{"date":"January 16, 2026","note":"Guaranteed review"},"final_deadline":{"date":"February 26, 2026","note":"Space-available basis"},"application_fee":"$105"},"requirements":{"sop_required":true,"letters_of_recommendation":3,"gre":{"required":false,"status":"NOT explicitly required"},"toefl":"Required for international students","ielts":"Accepted","gpa_competitive":"3.5+","background":"CS/Math/Science degree expected","research_background":"Not required","work_experience":"Valued"},"professors_and_contacts":[{"name":"Graduate Admissions","email":"grad-admissions@cs.duke.edu","website":"cs.duke.edu/people"}],"visa_and_h1b":{"score":"7/10","research_triangle_ecosystem":"Growing (Raleigh-Durham)","otp_months":"36 months","h1b_sponsorship":"Moderate","employers":"IBM, Red Hat, Cisco, SAS major employers","establishment_level":"North Carolina tech growing but less established","justification":"Research Triangle area growing. Less established than coastal but improving."},"costs_and_fees":{"tuition_per_semester":"$34,310","program_credits":30,"program_semesters":3,"total_tuition_30_credits":"$102,930","living_expenses_annual":"$15,000-18,000","total_2_year":"$135,000-145,000+","note":"Moderate to high cost"},"reddit_communities":["r/duke — General Duke discussions","r/gradadmissions — Graduate admissions","thegradcafe.com — Duke CS data","North Carolina tech communities"],"notable_features":["MEng AI for Product Innovation — combines technical AI with business/product","2,500+ faculty with 6:1 student-faculty ratio","Research Triangle — one of fastest-growing tech hubs","IBM, Red Hat, Cisco, SAS major employers"]}],"application_summary_table":[{"rank":1,"university":"Carnegie Mellon","app_deadline":"Dec 10, 2025","gre":"Recommended","toefl_min":100,"cost_annual":"$60K","visa_score":"8/10"},{"rank":2,"university":"Stanford","app_deadline":"Closed 12/1/25","gre":"No","toefl_min":"Varies","cost_annual":"$70K","visa_score":"9/10"},{"rank":3,"university":"MIT","app_deadline":"Dec 1, 2025","gre":"No","toefl_min":"Required","cost_annual":"$65K","visa_score":"9/10"},{"rank":4,"university":"UC Berkeley","app_deadline":"Dec 1, 2025","gre":"No","toefl_min":90,"cost_annual":"$50-60K","visa_score":"8/10"},{"rank":5,"university":"UIUC","app_deadline":"May 1, 2026","gre":"No","toefl_min":"Varies","cost_annual":"$35-40K","visa_score":"7/10"},{"rank":6,"university":"UW Seattle","app_deadline":"Mar 2, 2026","gre":"No","toefl_min":92,"cost_annual":"$70K","visa_score":"8/10"},{"rank":7,"university":"Georgia Tech","app_deadline":"Feb 1, 2026","gre":"REQUIRED","toefl_min":100,"cost_annual":"$40K","visa_score":"8/10"},{"rank":8,"university":"Cornell","app_deadline":"Jan 15, 2026","gre":"No","toefl_min":"Varies","cost_annual":"$60K","visa_score":"7/10"},{"rank":9,"university":"U Michigan","app_deadline":"Rolling","gre":"No","toefl_min":"Varies","cost_annual":"$55K","visa_score":"7/10"},{"rank":10,"university":"Princeton","app_deadline":"Closed 12/15/25","gre":"No","toefl_min":"Varies","cost_annual":"$60K","visa_score":"8/10"},{"rank":11,"university":"NYU","app_deadline":"Feb 15, 2026","gre":"No","toefl_min":100,"cost_annual":"$65K","visa_score":"8/10"},{"rank":12,"university":"Columbia","app_deadline":"Jan 15, 2026","gre":"No","toefl_min":"Varies","cost_annual":"$65K","visa_score":"9/10"},{"rank":13,"university":"UCSD","app_deadline":"Dec 17, 2025","gre":"No","toefl_min":"Varies","cost_annual":"$50K","visa_score":"8/10"},{"rank":14,"university":"UT Austin","app_deadline":"Dec 15, 2025","gre":"Optional","toefl_min":"Varies","cost_annual":"$40K","visa_score":"7/10"},{"rank":15,"university":"Harvard","app_deadline":"Closed 12/1/25","gre":"No","toefl_min":80,"cost_annual":"$80K","visa_score":"9/10"},{"rank":16,"university":"USC","app_deadline":"Jan 15, 2026","gre":"No","toefl_min":90,"cost_annual":"$70K","visa_score":"8/10"},{"rank":17,"university":"UCLA","app_deadline":"Dec 15, 2025","gre":"No","toefl_min":87,"cost_annual":"$50K","visa_score":"8/10"},{"rank":18,"university":"UMD","app_deadline":"Dec 5, 2025","gre":"Optional","toefl_min":"Varies","cost_annual":"$35-40K","visa_score":"7/10"},{"rank":19,"university":"UPenn","app_deadline":"Feb 1, 2026","gre":"Optional","toefl_min":"Varies","cost_annual":"$45-50K","visa_score":"8/10"},{"rank":20,"university":"Duke","app_deadline":"Feb 26, 2026","gre":"No","toefl_min":"Varies","cost_annual":"$70K","visa_score":"7/10"}],"key_insights_international":{"visa_situation_2026":{"international_enrollment":"72% of CS grad students nationally","stem_opt_availability":"36 months at all 20 universities","h1b_challenge":"Sponsorship challenging in 2026; automatic green cards not happening; competition increased","top_visa_schools":["Stanford (9/10)","MIT (9/10)","Harvard (9/10)","Columbia (9/10)"],"recommendation":"Top schools have excellent networking + employer connections"},"gre_status_2026":{"percentage_optional":"70-80% of universities made GRE optional","strictly_required":"Only Georgia Tech requires it among top 20","most_others":"Optional or waived for strong candidates"},"statement_of_purpose":{"required_at_all":true,"typical_length":"250-2,000 words","focus":"Research interests, career goals, program fit, motivation"},"cost_analysis":{"bay_area":"Stanford,Berkeley,UCLA — $60-75K/year","northeast":"MIT,Harvard,Columbia,Cornell,Penn,NYU — $65-80K/year","other_top_schools":"CMU,Georgia Tech,UT Austin — $40-65K/year","international_aid":"Generally ineligible","two_year_total":"$90,000-190,000+ depending on program"},"recommendation_tiers":{"tier_1_best_visa_prestige":["Stanford","MIT","Carnegie Mellon","Harvard","Columbia"],"tier_2_strong_visa_value":["UC Berkeley","Georgia Tech","Cornell","Princeton","UW Seattle"],"tier_3_good_programs_lower_cost":["UT Austin","UIUC","UMD","UCLA","UC San Diego"]}}}
+</script>
+<!-- EMBEDDED_DATA_END -->
+
+    <script>
+        const state = {
+            rawBase: null,
+            rawDetailed: null,
+            universities: [],
+            filteredUniversities: [],
+            activeUniversityId: null,
+            activeView: "cards",
+            filters: {
+                search: "",
+                visa: "all",
+                gre: "all",
+                sort: "rank"
+            }
+        };
+
+        const els = {
+            searchInput: document.getElementById("searchInput"),
+            visaFilter: document.getElementById("visaFilter"),
+            greFilter: document.getElementById("greFilter"),
+            sortSelect: document.getElementById("sortSelect"),
+            resetFiltersBtn: document.getElementById("resetFiltersBtn"),
+            tabRow: document.getElementById("tabRow"),
+            universityList: document.getElementById("universityList"),
+            resultsCount: document.getElementById("resultsCount"),
+            cardsView: document.getElementById("cardsView"),
+            detailView: document.getElementById("detailView"),
+            compareView: document.getElementById("compareView"),
+            insightsView: document.getElementById("insightsView"),
+            sourceView: document.getElementById("sourceView"),
+            loadingState: document.getElementById("loadingState"),
+            statsGrid: document.getElementById("statsGrid"),
+            footerNote: document.getElementById("footerNote")
+        };
+
+        const VIEW_IDS = {
+            cards: "cardsView",
+            detail: "detailView",
+            compare: "compareView",
+            insights: "insightsView",
+            source: "sourceView"
+        };
+
+        function escapeHtml(value) {
+            return String(value ?? "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#39;");
+        }
+
+        function humanizeKey(key) {
+            return String(key)
+                .replace(/_/g, " ")
+                .replace(/([a-z])([A-Z])/g, "$1 $2")
+                .replace(/\b\w/g, char => char.toUpperCase());
+        }
+
+        function normalizeText(value) {
+            return String(value ?? "")
+                .replace(/\u00e2\u20ac\u201d/g, " - ")
+                .replace(/\u00e2\u20ac\u02dc/g, "\"")
+                .replace(/\u00e2\u20ac\u2122/g, "\"")
+                .replace(/\u00e2\u20ac\u00a6/g, "...")
+                .replace(/\u00f0\u0178[\s\S]{2}/g, "")
+                .trim();
+        }
+
+        function tryParseStrictJson(text) {
+            try {
+                return JSON.parse(text);
+            } catch (error) {
+                return null;
+            }
+        }
+
+        function sanitizeJsonLike(text) {
+            return String(text)
+                .replace(
+                    /("reddit_communities"\s*:\s*\[[^\]]*?)\n(\s*)\},(\s*\n\s*"notable_features")/g,
+                    '$1\n$2],$3'
+                )
+                .replace(/^\uFEFF/, "")
+                .replace(/([{,]\s*)([A-Za-z0-9_]+)\s*:/g, '$1"$2":');
+        }
+
+        function tryParseJsonLike(text) {
+            try {
+                return JSON.parse(text);
+            } catch (strictError) {
+                try {
+                    return Function('"use strict"; return (' + text + ");")();
+                } catch (evalError) {
+                    const sanitized = sanitizeJsonLike(text);
+                    return Function('"use strict"; return (' + sanitized + ");")();
+                }
+            }
+        }
+
+        function readEmbeddedJson(id) {
+            const node = document.getElementById(id);
+            if (!node) return null;
+            const text = (node.textContent || "").trim();
+            if (!text) return null;
+            return JSON.parse(text);
+        }
+
+        function asArray(value) {
+            return Array.isArray(value) ? value : [];
+        }
+
+        function asObject(value) {
+            return value && typeof value === "object" && !Array.isArray(value) ? value : {};
+        }
+
+        function getPrimaryDeadline(timeline) {
+            const entries = [];
+            const source = asObject(timeline);
+            for (const [key, value] of Object.entries(source)) {
+                if (!/deadline/i.test(key)) continue;
+                if (typeof value === "string") {
+                    entries.push({ label: humanizeKey(key), value });
+                } else if (value && typeof value === "object") {
+                    const parts = [value.date, value.time, value.note].filter(Boolean);
+                    entries.push({ label: humanizeKey(key), value: parts.join(" | ") });
+                }
+            }
+            return entries[0] || null;
+        }
+
+        function getVisaNumeric(uni) {
+            const raw = String(uni?.visa_and_h1b?.score ?? "");
+            const match = raw.match(/(\d+(?:\.\d+)?)/);
+            return match ? Number(match[1]) : null;
+        }
+
+        function getGreBucket(uni) {
+            const gre = uni?.requirements?.gre;
+            const text = normalizeText(
+                typeof gre === "string"
+                    ? gre
+                    : [gre?.status, gre?.required === true ? "required" : ""].filter(Boolean).join(" ")
+            ).toLowerCase();
+
+            if (!text) return "unknown";
+            if (gre?.required === true || /\brequired\b/.test(text)) return "required";
+            if (/\brecommend/.test(text)) return "recommended";
+            return "optional";
+        }
+
+        function getOpenAiCount(uni) {
+            return Number(uni?.alumni_data?.openai ?? 0) || 0;
+        }
+
+        function getTechCount(uni) {
+            const value = uni?.alumni_data?.tech_companies_top_15 ?? uni?.alumni_data?.tech_companies ?? 0;
+            return Number(value) || 0;
+        }
+
+        function getSearchHaystack(uni) {
+            const parts = [];
+            (function walk(value) {
+                if (value == null) return;
+                if (Array.isArray(value)) {
+                    value.forEach(walk);
+                    return;
+                }
+                if (typeof value === "object") {
+                    Object.entries(value).forEach(([key, inner]) => {
+                        parts.push(humanizeKey(key));
+                        walk(inner);
+                    });
+                    return;
+                }
+                parts.push(String(value));
+            })(uni);
+            return parts.join(" ").toLowerCase();
+        }
+
+        function mergeUniversity(baseUni, detailedUni) {
+            const merged = structuredClone(baseUni || {});
+            for (const [key, value] of Object.entries(detailedUni || {})) {
+                if (Array.isArray(value)) {
+                    merged[key] = value;
+                } else if (value && typeof value === "object") {
+                    merged[key] = { ...(merged[key] || {}), ...value };
+                } else {
+                    merged[key] = value;
+                }
+            }
+
+            merged.base_snapshot = baseUni || {};
+            merged.detailed_snapshot = detailedUni || {};
+            merged.id = `${merged.rank}-${(merged.name || "").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+            merged.primary_deadline = getPrimaryDeadline(merged.application_timeline);
+            merged.visa_numeric = getVisaNumeric(merged);
+            merged.gre_bucket = getGreBucket(merged);
+            merged.openai_count = getOpenAiCount(merged);
+            merged.tech_count = getTechCount(merged);
+            merged.search_text = getSearchHaystack(merged);
+            return merged;
+        }
+
+        async function loadData() {
+            try {
+                let base = readEmbeddedJson("embeddedBaseData");
+                let detailed = readEmbeddedJson("embeddedDetailedData");
+
+                if (!base || !detailed) {
+                    const [baseText, detailedText] = await Promise.all([
+                        fetch("top_20_universities_ms_ai_2025_2026.json").then(response => {
+                            if (!response.ok) throw new Error("Unable to load base JSON.");
+                            return response.text();
+                        }),
+                        fetch("top_20_universities_ms_ai_2025_2026_detailed.json").then(response => {
+                            if (!response.ok) throw new Error("Unable to load detailed JSON-like file.");
+                            return response.text();
+                        })
+                    ]);
+
+                    base = tryParseJsonLike(baseText);
+                    detailed = tryParseJsonLike(detailedText);
+                }
+
+                state.rawBase = base;
+                state.rawDetailed = detailed;
+
+                const baseByRank = new Map(asArray(base.universities).map(uni => [uni.rank, uni]));
+                const detailedByRank = new Map(asArray(detailed.universities).map(uni => [uni.rank, uni]));
+                const allRanks = [...new Set([...baseByRank.keys(), ...detailedByRank.keys()])].sort((a, b) => a - b);
+
+                state.universities = allRanks.map(rank => mergeUniversity(baseByRank.get(rank), detailedByRank.get(rank)));
+                state.activeUniversityId = state.universities[0]?.id || null;
+
+                applyFilters();
+                els.loadingState.classList.add("hidden");
+            } catch (error) {
+                console.error(error);
+                els.loadingState.innerHTML = `
+                    <div class="loading-card">
+                        <h2>Could not load dashboard data</h2>
+                        <div class="status-line">${escapeHtml(error.message || "Unknown loading error.")}</div>
+                    </div>
+                `;
+            }
+        }
+
+        function applyFilters() {
+            const { search, visa, gre, sort } = state.filters;
+            const query = search.trim().toLowerCase();
+
+            let filtered = [...state.universities].filter(uni => {
+                const queryMatch = !query || uni.search_text.includes(query);
+                const visaMatch = visa === "all" || (uni.visa_numeric != null && uni.visa_numeric >= Number(visa));
+                const greMatch = gre === "all" || uni.gre_bucket === gre;
+                return queryMatch && visaMatch && greMatch;
+            });
+
+            filtered.sort((a, b) => {
+                if (sort === "visa") return (b.visa_numeric || -1) - (a.visa_numeric || -1) || a.rank - b.rank;
+                if (sort === "openai") return b.openai_count - a.openai_count || a.rank - b.rank;
+                if (sort === "tech") return b.tech_count - a.tech_count || a.rank - b.rank;
+                if (sort === "alphabetical") return String(a.name).localeCompare(String(b.name));
+                return a.rank - b.rank;
+            });
+
+            state.filteredUniversities = filtered;
+
+            if (!filtered.find(uni => uni.id === state.activeUniversityId)) {
+                state.activeUniversityId = filtered[0]?.id || null;
+            }
+
+            renderAll();
+        }
+
+        function renderAll() {
+            renderStats();
+            renderSidebar();
+            renderCardsView();
+            renderDetailView();
+            renderCompareView();
+            renderInsightsView();
+            renderSourceView();
+            syncActiveView();
+        }
+
+        function renderStats() {
+            const filtered = state.filteredUniversities;
+            const total = filtered.length;
+            const topVisa = filtered.filter(uni => (uni.visa_numeric || 0) >= 8).length;
+            const totalOpenAI = filtered.reduce((sum, uni) => sum + uni.openai_count, 0);
+            const topFeeder = [...filtered].sort((a, b) => b.tech_count - a.tech_count)[0];
+
+            els.statsGrid.innerHTML = [
+                {
+                    label: "Visible Universities",
+                    value: total || "0",
+                    subtitle: total ? `Filtered from ${state.universities.length} total schools.` : "No universities match the active filters."
+                },
+                {
+                    label: "Strong Visa Scores",
+                    value: topVisa,
+                    subtitle: "Schools with visa / H1B support at 8/10 or above."
+                },
+                {
+                    label: "OpenAI Alumni Sum",
+                    value: totalOpenAI || "0",
+                    subtitle: "Combined visible alumni headcount pulled from the datasets."
+                },
+                {
+                    label: "Top Tech Feeder",
+                    value: topFeeder ? topFeeder.name : "N/A",
+                    subtitle: topFeeder ? `${topFeeder.tech_count || "N/A"} alumni at top tech firms.` : "No tech feeder counts in current view."
+                }
+            ].map(card => `
+                <article class="stat-card">
+                    <div class="stat-label">${escapeHtml(card.label)}</div>
+                    <div class="stat-value">${escapeHtml(card.value)}</div>
+                    <div class="stat-subtitle">${escapeHtml(card.subtitle)}</div>
+                </article>
+            `).join("");
+        }
+
+        function renderSidebar() {
+            const filtered = state.filteredUniversities;
+            els.resultsCount.textContent = `${filtered.length} result${filtered.length === 1 ? "" : "s"}`;
+
+            if (!filtered.length) {
+                els.universityList.innerHTML = `<div class="empty-state">No universities match the current search and filters.</div>`;
+                return;
+            }
+
+            els.universityList.innerHTML = filtered.map(uni => {
+                const greText = uni.gre_bucket === "required" ? "GRE required" : uni.gre_bucket === "recommended" ? "GRE recommended" : "GRE optional";
+                return `
+                    <button class="uni-list-item ${uni.id === state.activeUniversityId ? "active" : ""}" type="button" data-university-id="${escapeHtml(uni.id)}">
+                        <div class="uni-list-rank">#${escapeHtml(uni.rank)}</div>
+                        <div class="uni-list-name">${escapeHtml(uni.name)}</div>
+                        <div class="uni-list-meta">${escapeHtml(uni.location || "Location not listed")}</div>
+                        <div class="uni-list-tags">
+                            <span class="tag ${uni.visa_numeric >= 8 ? "success" : uni.visa_numeric >= 7 ? "warning" : ""}">Visa ${escapeHtml(uni.visa_and_h1b?.score || "N/A")}</span>
+                            <span class="tag">${escapeHtml(greText)}</span>
+                            ${uni.primary_deadline ? `<span class="tag">Deadline ${escapeHtml(uni.primary_deadline.value)}</span>` : ""}
+                        </div>
+                    </button>
+                `;
+            }).join("");
+        }
+
+        function renderCardsView() {
+            const filtered = state.filteredUniversities;
+
+            if (!filtered.length) {
+                els.cardsView.innerHTML = `<div class="empty-state">Nothing to show in cards view for the current filters.</div>`;
+                return;
+            }
+
+            els.cardsView.innerHTML = `
+                <div class="cards-grid">
+                    ${filtered.map(uni => renderUniversityCard(uni)).join("")}
+                </div>
+            `;
+        }
+
+        function renderUniversityCard(uni) {
+            const programChips = asArray(uni.key_programs).slice(0, 4).map(program => `<span class="chip">${escapeHtml(program)}</span>`).join("");
+            const connectionChips = asArray(uni.notable_connections || uni.notable_features).slice(0, 4).map(item => `<span class="chip">${escapeHtml(item)}</span>`).join("");
+            const rankings = asObject(uni.rankings);
+            const primaryDeadline = uni.primary_deadline?.value || "Not listed";
+            const annualCost = uni.costs_and_fees?.annual_tuition
+                || uni.costs_and_fees?.annual_tuition_and_fees
+                || uni.costs_and_fees?.total_cost_of_attendance_annual
+                || uni.costs_and_fees?.cost_annual
+                || "Varies";
+
+            return `
+                <article class="university-card" data-card-id="${escapeHtml(uni.id)}">
+                    <div class="card-top">
+                        <div>
+                            <div class="rank-badge">#${escapeHtml(uni.rank)}</div>
+                            <h3 class="card-title">${escapeHtml(uni.name)}</h3>
+                            <p class="card-subtitle">${escapeHtml(uni.location || "Location not listed")}</p>
+                        </div>
+                        <div class="tag ${uni.visa_numeric >= 8 ? "success" : uni.visa_numeric >= 7 ? "warning" : "danger"}">Visa ${escapeHtml(uni.visa_and_h1b?.score || "N/A")}</div>
+                    </div>
+
+                    <div class="metric-grid">
+                        <div class="metric-box">
+                            <div class="metric-label">THE CS 2026</div>
+                            <div class="metric-value">${escapeHtml(rankings.times_higher_education_cs_2026?.us_rank ? "#" + rankings.times_higher_education_cs_2026.us_rank : "N/A")}</div>
+                            <div class="metric-note">${escapeHtml(rankings.times_higher_education_cs_2026?.score ? "Score " + rankings.times_higher_education_cs_2026.score : "No score listed")}</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-label">OpenAI Alumni</div>
+                            <div class="metric-value">${escapeHtml(uni.openai_count || "0")}</div>
+                            <div class="metric-note">Tech feeder ${escapeHtml(uni.tech_count || "N/A")}</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-label">Primary Deadline</div>
+                            <div class="metric-value">${escapeHtml(primaryDeadline)}</div>
+                            <div class="metric-note">${escapeHtml(uni.primary_deadline?.label || "Deadline field")}</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-label">Annual Cost</div>
+                            <div class="metric-value">${escapeHtml(annualCost)}</div>
+                            <div class="metric-note">${escapeHtml(uni.requirements?.gre?.status || "GRE status not listed")}</div>
+                        </div>
+                    </div>
+
+                    <div class="list-block">
+                        <div class="list-title">Key Programs</div>
+                        <div class="chip-list">${programChips || `<span class="chip">No programs listed</span>`}</div>
+                    </div>
+
+                    <div class="list-block">
+                        <div class="list-title">Signals</div>
+                        <div class="chip-list">${connectionChips || `<span class="chip">No extra signals listed</span>`}</div>
+                    </div>
+
+                    <div class="card-why">${escapeHtml(uni.why_notable || "No summary paragraph provided in the source data.")}</div>
+                </article>
+            `;
+        }
+
+        function renderDetailView() {
+            const uni = state.filteredUniversities.find(item => item.id === state.activeUniversityId);
+            if (!uni) {
+                els.detailView.innerHTML = `<div class="empty-state">Pick a university from the left to inspect the full record.</div>`;
+                return;
+            }
+
+            const rankings = asObject(uni.rankings);
+            const timeline = asObject(uni.application_timeline);
+            const requirements = asObject(uni.requirements);
+            const visa = asObject(uni.visa_and_h1b);
+            const costs = asObject(uni.costs_and_fees);
+            const alumni = asObject(uni.alumni_data);
+            const professors = asArray(uni.professors_and_contacts);
+
+            els.detailView.innerHTML = `
+                <div class="detail-layout">
+                    <section class="detail-header-card">
+                        <div class="detail-header-top">
+                            <div>
+                                <div class="detail-rank">Rank #${escapeHtml(uni.rank)}</div>
+                                <h2 class="detail-name">${escapeHtml(uni.name)}</h2>
+                                <div class="detail-location">${escapeHtml(uni.location || "Location not listed")}</div>
+                                <div class="detail-meta">
+                                    ${uni.website ? `<a class="tag success" href="${escapeHtml(uni.website)}" target="_blank" rel="noreferrer">Official Website</a>` : ""}
+                                    <span class="tag ${uni.visa_numeric >= 8 ? "success" : uni.visa_numeric >= 7 ? "warning" : "danger"}">Visa ${escapeHtml(visa.score || "N/A")}</span>
+                                    <span class="tag">${escapeHtml(uni.primary_deadline?.label || "Primary deadline")} ${escapeHtml(uni.primary_deadline?.value || "Not listed")}</span>
+                                    <span class="tag">${escapeHtml(uni.gre_bucket.toUpperCase())} GRE</span>
+                                </div>
+                            </div>
+                            <div class="highlight-card">
+                                <div class="metric-label">Why Notable</div>
+                                <div class="metric-note">${escapeHtml(uni.why_notable || "No source summary available.")}</div>
+                            </div>
+                        </div>
+                        <div class="detail-summary">${escapeHtml(uni.why_notable || "No descriptive summary available.")}</div>
+                    </section>
+
+                    <section class="section-block">
+                        <div class="section-header">
+                            <div>
+                                <h3 class="section-title">Highlights</h3>
+                                <p class="section-subtitle">Quick-read summary before the deeper raw data sections.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-grid">
+                            <div class="highlight-card">
+                                <div class="metric-label">THE CS 2026</div>
+                                <div class="metric-value">${escapeHtml(rankings.times_higher_education_cs_2026?.us_rank ? "#" + rankings.times_higher_education_cs_2026.us_rank : "N/A")}</div>
+                                <div class="metric-note">${escapeHtml(rankings.times_higher_education_cs_2026?.score ? "Score " + rankings.times_higher_education_cs_2026.score : "Score unavailable")}</div>
+                            </div>
+                            <div class="highlight-card">
+                                <div class="metric-label">OpenAI Alumni</div>
+                                <div class="metric-value">${escapeHtml(uni.openai_count || "0")}</div>
+                                <div class="metric-note">Anthropic ${escapeHtml(alumni.anthropic || "N/A")} | Tech feeder ${escapeHtml(uni.tech_count || "N/A")}</div>
+                            </div>
+                            <div class="highlight-card">
+                                <div class="metric-label">Primary Deadline</div>
+                                <div class="metric-value">${escapeHtml(uni.primary_deadline?.value || "Not listed")}</div>
+                                <div class="metric-note">${escapeHtml(uni.primary_deadline?.label || "Application timeline")}</div>
+                            </div>
+                            <div class="highlight-card">
+                                <div class="metric-label">Estimated Cost</div>
+                                <div class="metric-value">${escapeHtml(costs.annual_tuition || costs.annual_tuition_and_fees || costs.total_cost_of_attendance_annual || "Varies")}</div>
+                                <div class="metric-note">${escapeHtml(costs.total_2_year_estimate || costs.total_2_year || costs.total_out_of_state_2_year || costs.total_2_year_equivalent || "No 2-year estimate listed")}</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="detail-panels">
+                        <section class="section-block">
+                            <div class="section-header">
+                                <div>
+                                    <h3 class="section-title">Programs And Rankings</h3>
+                                    <p class="section-subtitle">Programs, ranking signals, and notable research links.</p>
+                                </div>
+                            </div>
+                            <div class="kv-grid">
+                                <div class="kv-item">
+                                    <div class="kv-key">Key Programs</div>
+                                    <div class="kv-value">${renderArray(asArray(uni.key_programs))}</div>
+                                </div>
+                                <div class="kv-item">
+                                    <div class="kv-key">Rankings</div>
+                                    <div class="kv-value">${renderKeyValueObject(rankings)}</div>
+                                </div>
+                                <div class="kv-item">
+                                    <div class="kv-key">Notable Connections / Features</div>
+                                    <div class="kv-value">${renderArray(asArray(uni.notable_connections || uni.notable_features))}</div>
+                                </div>
+                                <div class="kv-item">
+                                    <div class="kv-key">Apple Scholars AIML</div>
+                                    <div class="kv-value">${renderAny(uni.apple_scholars_aiml)}</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="section-block">
+                            <div class="section-header">
+                                <div>
+                                    <h3 class="section-title">Application, Visa, Costs</h3>
+                                    <p class="section-subtitle">Everything application-facing from the detailed file.</p>
+                                </div>
+                            </div>
+                            <div class="kv-grid">
+                                <div class="kv-item">
+                                    <div class="kv-key">Application Timeline</div>
+                                    <div class="kv-value">${renderKeyValueObject(timeline)}</div>
+                                </div>
+                                <div class="kv-item">
+                                    <div class="kv-key">Requirements</div>
+                                    <div class="kv-value">${renderKeyValueObject(requirements)}</div>
+                                </div>
+                                <div class="kv-item">
+                                    <div class="kv-key">Visa And H1B</div>
+                                    <div class="kv-value">${renderKeyValueObject(visa)}</div>
+                                </div>
+                                <div class="kv-item">
+                                    <div class="kv-key">Costs And Fees</div>
+                                    <div class="kv-value">${renderKeyValueObject(costs)}</div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <section class="section-block">
+                        <div class="section-header">
+                            <div>
+                                <h3 class="section-title">Professors, Alumni, Communities</h3>
+                                <p class="section-subtitle">Contacts, alumni counts, and community pointers.</p>
+                            </div>
+                        </div>
+                        <div class="detail-panels">
+                            <div>
+                                <div class="kv-key">Professors And Contacts</div>
+                                <div class="faculty-list">${renderProfessorCards(professors)}</div>
+                            </div>
+                            <div>
+                                <div class="kv-key">Alumni Data</div>
+                                <div class="kv-value">${renderKeyValueObject(alumni)}</div>
+                                <div class="kv-item">
+                                    <div class="kv-key">Reddit Communities</div>
+                                    <div class="kv-value">${renderArray(asArray(uni.reddit_communities))}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section-block">
+                        <div class="section-header">
+                            <div>
+                                <h3 class="section-title">Full University Record</h3>
+                                <p class="section-subtitle">Raw recursive rendering of the merged object so no field is lost.</p>
+                            </div>
+                        </div>
+                        <div class="recursive-layout">${renderRecursiveObject(uni, 0, { excludeKeys: ["search_text", "base_snapshot", "detailed_snapshot", "id", "visa_numeric", "gre_bucket", "openai_count", "tech_count", "primary_deadline"] })}</div>
+                    </section>
+                </div>
+            `;
+        }
+
+        function renderCompareView() {
+            const filtered = state.filteredUniversities;
+            if (!filtered.length) {
+                els.compareView.innerHTML = `<div class="empty-state">No rows available for comparison.</div>`;
+                return;
+            }
+
+            els.compareView.innerHTML = `
+                <section class="section-block">
+                    <div class="section-header">
+                        <div>
+                            <h3 class="section-title">Comparison Table</h3>
+                            <p class="section-subtitle">Fast scan across rankings, deadlines, visa support, costs, and alumni counts.</p>
+                        </div>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>University</th>
+                                    <th>Location</th>
+                                    <th>THE 2026</th>
+                                    <th>CSRankings AI</th>
+                                    <th>Primary Deadline</th>
+                                    <th>GRE</th>
+                                    <th>TOEFL</th>
+                                    <th>Visa</th>
+                                    <th>OpenAI</th>
+                                    <th>Tech Feeder</th>
+                                    <th>Annual Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${filtered.map(uni => `
+                                    <tr data-row-id="${escapeHtml(uni.id)}">
+                                        <td>#${escapeHtml(uni.rank)}</td>
+                                        <td><strong>${escapeHtml(uni.name)}</strong></td>
+                                        <td>${escapeHtml(uni.location || "N/A")}</td>
+                                        <td>${escapeHtml(uni.rankings?.times_higher_education_cs_2026?.us_rank ? "#" + uni.rankings.times_higher_education_cs_2026.us_rank : "N/A")}</td>
+                                        <td>${escapeHtml(uni.rankings?.csrankings_2025_ai || uni.rankings?.csrankings_2025_ai_us_rank ? String(uni.rankings.csrankings_2025_ai || "#" + uni.rankings.csrankings_2025_ai_us_rank) : "N/A")}</td>
+                                        <td>${escapeHtml(uni.primary_deadline?.value || "N/A")}</td>
+                                        <td>${escapeHtml(uni.requirements?.gre?.status || uni.gre_bucket)}</td>
+                                        <td>${escapeHtml(
+                                            uni.requirements?.toefl_iBT_minimum
+                                            || uni.requirements?.toefl_computer_based_minimum
+                                            || uni.requirements?.toefl
+                                            || uni.requirements?.toefl_ielts
+                                            || "Varies"
+                                        )}</td>
+                                        <td>${escapeHtml(uni.visa_and_h1b?.score || "N/A")}</td>
+                                        <td>${escapeHtml(uni.openai_count || "0")}</td>
+                                        <td>${escapeHtml(uni.tech_count || "N/A")}</td>
+                                        <td>${escapeHtml(
+                                            uni.costs_and_fees?.annual_tuition
+                                            || uni.costs_and_fees?.annual_tuition_and_fees
+                                            || uni.costs_and_fees?.total_cost_of_attendance_annual
+                                            || "Varies"
+                                        )}</td>
+                                    </tr>
+                                `).join("")}
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            `;
+        }
+
+        function renderInsightsView() {
+            const baseSignals = asArray(state.rawBase?.ranking_signals);
+            const rankingSummary = asArray(state.rawBase?.ranking_summary_table);
+            const applicationSummary = asArray(state.rawDetailed?.application_summary_table);
+            const insights = asObject(state.rawDetailed?.key_insights_international);
+
+            els.insightsView.innerHTML = `
+                <section class="section-block">
+                    <div class="section-header">
+                        <div>
+                            <h3 class="section-title">International Applicant Insights</h3>
+                            <p class="section-subtitle">Structured sections from the detailed dataset, shown without dropping any properties.</p>
+                        </div>
+                    </div>
+                    <div class="insight-grid">
+                        ${Object.entries(insights).map(([key, value]) => `
+                            <article class="insight-card">
+                                <h4 class="recursive-title">${escapeHtml(humanizeKey(key))}</h4>
+                                ${renderAny(value)}
+                            </article>
+                        `).join("") || `<div class="empty-state">No international insights found.</div>`}
+                    </div>
+                </section>
+
+                <section class="section-block">
+                    <div class="section-header">
+                        <div>
+                            <h3 class="section-title">Ranking Signals</h3>
+                            <p class="section-subtitle">All source signals listed in the base ranking file.</p>
+                        </div>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Source</th>
+                                    <th>Year</th>
+                                    <th>Measures</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${baseSignals.map(item => `
+                                    <tr>
+                                        <td>${escapeHtml(item.source)}</td>
+                                        <td>${escapeHtml(item.year)}</td>
+                                        <td>${escapeHtml(item.measures)}</td>
+                                    </tr>
+                                `).join("")}
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="section-block">
+                    <div class="section-header">
+                        <div>
+                            <h3 class="section-title">Ranking Summary Table</h3>
+                            <p class="section-subtitle">Summary table from the base JSON.</p>
+                        </div>
+                    </div>
+                    ${renderDynamicTable(rankingSummary)}
+                </section>
+
+                <section class="section-block">
+                    <div class="section-header">
+                        <div>
+                            <h3 class="section-title">Application Summary Table</h3>
+                            <p class="section-subtitle">Quick application-facing snapshot from the detailed file.</p>
+                        </div>
+                    </div>
+                    ${renderDynamicTable(applicationSummary)}
+                </section>
+            `;
+        }
+
+        function renderSourceView() {
+            const baseMeta = asObject(state.rawBase?.metadata);
+            const detailedMeta = asObject(state.rawDetailed?.metadata);
+
+            els.sourceView.innerHTML = `
+                <section class="section-block">
+                    <div class="section-header">
+                        <div>
+                            <h3 class="section-title">Source Metadata</h3>
+                            <p class="section-subtitle">Top-level metadata and full raw structures from both source files.</p>
+                        </div>
+                    </div>
+                    <div class="detail-panels">
+                        <div class="recursive-object">
+                            <h4 class="recursive-title">Base File Metadata</h4>
+                            ${renderAny(baseMeta)}
+                        </div>
+                        <div class="recursive-object">
+                            <h4 class="recursive-title">Detailed File Metadata</h4>
+                            ${renderAny(detailedMeta)}
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section-block">
+                    <div class="section-header">
+                        <div>
+                            <h3 class="section-title">Base File Raw Object</h3>
+                            <p class="section-subtitle">Recursive rendering of the strict JSON file.</p>
+                        </div>
+                    </div>
+                    <div class="recursive-layout">${renderRecursiveObject(state.rawBase, 0)}</div>
+                </section>
+
+                <section class="section-block">
+                    <div class="section-header">
+                        <div>
+                            <h3 class="section-title">Detailed File Raw Object</h3>
+                            <p class="section-subtitle">Recursive rendering of the JSON-like detailed file, including the malformed-but-parseable sections.</p>
+                        </div>
+                    </div>
+                    <div class="recursive-layout">${renderRecursiveObject(state.rawDetailed, 0)}</div>
+                </section>
+            `;
+        }
+
+        function renderProfessorCards(professors) {
+            if (!professors.length) {
+                return `<div class="faculty-card"><div class="faculty-meta">No professor or contact data listed.</div></div>`;
+            }
+
+            return professors.map(prof => `
+                <article class="faculty-card">
+                    <div class="faculty-name">${escapeHtml(prof.name || prof.email_general || prof.email || "Faculty / Contact")}</div>
+                    <div class="faculty-meta">${renderKeyValueObject(prof)}</div>
+                </article>
+            `).join("");
+        }
+
+        function renderArray(items) {
+            if (!items.length) return `<span class="tag">None listed</span>`;
+            return `<ul class="list-clean">${items.map(item => `<li>${renderAny(item)}</li>`).join("")}</ul>`;
+        }
+
+        function renderPrimitive(value) {
+            if (typeof value === "boolean") {
+                return `<span class="tag ${value ? "success" : "warning"}">${value ? "Yes" : "No"}</span>`;
+            }
+            if (typeof value === "number") {
+                return escapeHtml(value);
+            }
+            const stringValue = normalizeText(value);
+            if (/^https?:\/\//i.test(stringValue)) {
+                return `<a href="${escapeHtml(stringValue)}" target="_blank" rel="noreferrer">${escapeHtml(stringValue)}</a>`;
+            }
+            return escapeHtml(stringValue);
+        }
+
+        function renderKeyValueObject(obj) {
+            const entries = Object.entries(asObject(obj));
+            if (!entries.length) return `<span class="tag">None listed</span>`;
+            return `<div class="kv-grid">${
+                entries.map(([key, value]) => `
+                    <div class="kv-item">
+                        <div class="kv-key">${escapeHtml(humanizeKey(key))}</div>
+                        <div class="kv-value">${renderAny(value)}</div>
+                    </div>
+                `).join("")
+            }</div>`;
+        }
+
+        function renderAny(value) {
+            if (value == null) return `<span class="tag">Not provided</span>`;
+            if (Array.isArray(value)) return renderArray(value);
+            if (typeof value === "object") return renderKeyValueObject(value);
+            return renderPrimitive(value);
+        }
+
+        function renderRecursiveObject(value, depth = 0, options = {}) {
+            const excludeKeys = new Set(options.excludeKeys || []);
+            if (value == null) {
+                return `<div class="recursive-object"><div class="kv-value">Not provided</div></div>`;
+            }
+
+            if (Array.isArray(value)) {
+                if (!value.length) {
+                    return `<div class="recursive-object"><div class="kv-value">Empty array</div></div>`;
+                }
+                return value.map((item, index) => `
+                    <div class="recursive-object">
+                        <h4 class="recursive-title">Item ${index + 1}</h4>
+                        ${renderRecursiveObject(item, depth + 1, options)}
+                    </div>
+                `).join("");
+            }
+
+            if (typeof value !== "object") {
+                return `<div class="recursive-object"><div class="kv-value">${renderPrimitive(value)}</div></div>`;
+            }
+
+            const entries = Object.entries(value).filter(([key]) => !excludeKeys.has(key));
+            if (!entries.length) {
+                return `<div class="recursive-object"><div class="kv-value">No visible keys</div></div>`;
+            }
+
+            return entries.map(([key, inner]) => `
+                <div class="recursive-object">
+                    <h4 class="recursive-title">${escapeHtml(humanizeKey(key))}</h4>
+                    ${
+                        inner && typeof inner === "object"
+                            ? renderRecursiveObject(inner, depth + 1, options)
+                            : `<div class="kv-value">${renderPrimitive(inner)}</div>`
+                    }
+                </div>
+            `).join("");
+        }
+
+        function renderDynamicTable(rows) {
+            if (!rows.length) return `<div class="empty-state">No rows available.</div>`;
+
+            const columnSet = new Set();
+            rows.forEach(row => Object.keys(asObject(row)).forEach(key => columnSet.add(key)));
+            const columns = [...columnSet];
+
+            return `
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>${columns.map(column => `<th>${escapeHtml(humanizeKey(column))}</th>`).join("")}</tr>
+                        </thead>
+                        <tbody>
+                            ${rows.map(row => `
+                                <tr>
+                                    ${columns.map(column => `<td>${renderAny(row[column])}</td>`).join("")}
+                                </tr>
+                            `).join("")}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        function syncActiveView() {
+            Object.entries(VIEW_IDS).forEach(([view, id]) => {
+                document.getElementById(id).classList.toggle("active", state.activeView === view);
+            });
+
+            document.querySelectorAll("[data-view]").forEach(button => {
+                button.classList.toggle("active", button.dataset.view === state.activeView);
+            });
+        }
+
+        function setActiveUniversity(id, view = null) {
+            state.activeUniversityId = id;
+            if (view) state.activeView = view;
+            renderAll();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        function bindEvents() {
+            els.searchInput.addEventListener("input", event => {
+                state.filters.search = event.target.value;
+                applyFilters();
+            });
+
+            els.visaFilter.addEventListener("change", event => {
+                state.filters.visa = event.target.value;
+                applyFilters();
+            });
+
+            els.greFilter.addEventListener("change", event => {
+                state.filters.gre = event.target.value;
+                applyFilters();
+            });
+
+            els.sortSelect.addEventListener("change", event => {
+                state.filters.sort = event.target.value;
+                applyFilters();
+            });
+
+            els.resetFiltersBtn.addEventListener("click", () => {
+                state.filters = { search: "", visa: "all", gre: "all", sort: "rank" };
+                els.searchInput.value = "";
+                els.visaFilter.value = "all";
+                els.greFilter.value = "all";
+                els.sortSelect.value = "rank";
+                applyFilters();
+            });
+
+            document.addEventListener("click", event => {
+                const tabButton = event.target.closest("[data-view]");
+                if (tabButton) {
+                    state.activeView = tabButton.dataset.view;
+                    syncActiveView();
+                    return;
+                }
+
+                const sidebarButton = event.target.closest("[data-university-id]");
+                if (sidebarButton) {
+                    setActiveUniversity(sidebarButton.dataset.universityId, state.activeView === "cards" ? "detail" : state.activeView);
+                    return;
+                }
+
+                const card = event.target.closest("[data-card-id]");
+                if (card) {
+                    setActiveUniversity(card.dataset.cardId, "detail");
+                    return;
+                }
+
+                const row = event.target.closest("[data-row-id]");
+                if (row) {
+                    setActiveUniversity(row.dataset.rowId, "detail");
+                }
+            });
+        }
+
+        bindEvents();
+        syncActiveView();
+        loadData();
+    </script>
+</body>
+</html>
